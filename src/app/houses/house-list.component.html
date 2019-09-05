@@ -3,9 +3,9 @@
 
 <div class="card">
 
-    <div class="card-header">Property Listing</div>
+    <div class="card-header font-weight-bold">Property Listing</div>
     <div class="card-body">
-        <table class="table-striped">
+        <table class="table-striped" cellspacing="50">
             <thead style="background-color: lightyellow">
                 <th>Image</th>
                 <th>Property ID</th>
@@ -20,14 +20,14 @@
             <tbody>
                 <ng-container *ngFor="let house of houses">
                     <tr>
-                        <td><img [src]=house.imageUrl alt="This is a house"></td>
+                        <td><img [src]=house.imageUrl alt="house.id"></td>
                         <td>{{house.id}}</td>
                         <td>{{house.address}}</td>
-                        <td>{{house.listingPrice}}</td>
-                        <td>{{house.availableDate}}</td>
+                        <td>{{house.listingPrice | currency}}</td>
+                        <td>{{house.availableDate | date}}</td>
                         <td>{{house.numOfBedroom}}</td>
                         <td>{{house.numOfBathroom}}</td>
-                        <td>{{house.contactPhone}}</td>
+                        <td>{{house.contactPhone | phone:'US'}}</td>
                     </tr>
                 </ng-container>
             </tbody>

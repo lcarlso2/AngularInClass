@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { HouseListComponent } from './houses/house-list.component';
+import { PhonePipe } from './phone-pipe';
+import { HomeComponent } from './houses/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HouseListComponent
+    HouseListComponent,
+    HomeComponent,
+    PhonePipe
   ],
   imports: [
     BrowserModule
