@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { House } from './house.model';
 
+
 @Component({
   selector: 'lm-houselist',
   templateUrl: './house-list.component.html',

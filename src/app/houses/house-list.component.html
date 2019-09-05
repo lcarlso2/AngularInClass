@@ -1,20 +1,37 @@
 <h3>Welcome to list</h3>
 
-<table>
-    <thead>
-        <th>Image</th>
-        <th>Property ID</th>
-        <th>Property Address</th>
-        <th>Listing Price</th>
-        <th>Available Date</th>
-        <th>Num of Bedrooms</th>
-        <th>Num of Bathrooms</th>
-        <th>Contact Phone</th>
-    </thead>
 
-    <tbody>
-        <tr *ngFor="let house of houses">
-            <td><img [src]= house.imageUrl alt="This is a house"></td>
-        </tr>
-    </tbody>
-</table>
+<div class="card">
+
+    <div class="card-header">Property Listing</div>
+    <div class="card-body">
+        <table class="table-striped">
+            <thead style="background-color: lightyellow">
+                <th>Image</th>
+                <th>Property ID</th>
+                <th>Property Address</th>
+                <th>Listing Price</th>
+                <th>Available Date</th>
+                <th>Num of Bedrooms</th>
+                <th>Num of Bathrooms</th>
+                <th>Contact Phone</th>
+            </thead>
+
+            <tbody>
+                <ng-container *ngFor="let house of houses">
+                    <tr>
+                        <td><img [src]=house.imageUrl alt="This is a house"></td>
+                        <td>{{house.id}}</td>
+                        <td>{{house.address}}</td>
+                        <td>{{house.listingPrice}}</td>
+                        <td>{{house.availableDate}}</td>
+                        <td>{{house.numOfBedroom}}</td>
+                        <td>{{house.numOfBathroom}}</td>
+                        <td>{{house.contactPhone}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+
+</div>
