@@ -1,37 +1,41 @@
-<h3>Welcome to list</h3>
+<div class="container">
+    <div class="card">
 
-
-<div class="card">
-
-    <div class="card-header font-weight-bold">Property Listing</div>
-    <div class="card-body">
-        <table class="table-striped" cellspacing="50">
-            <thead style="background-color: lightyellow">
-                <th>Image</th>
-                <th>Property ID</th>
-                <th>Property Address</th>
-                <th>Listing Price</th>
-                <th>Available Date</th>
-                <th>Num of Bedrooms</th>
-                <th>Num of Bathrooms</th>
-                <th>Contact Phone</th>
-            </thead>
-
-            <tbody>
-                <ng-container *ngFor="let house of houses">
+        <div class="card-header font-weight-bold">All Listings</div>
+        <div class="card-body">
+            <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">
+                <thead style="background-color: lightyellow">
                     <tr>
-                        <td><img [src]=house.imageUrl alt="house.id"></td>
-                        <td>{{house.id}}</td>
-                        <td>{{house.address}}</td>
-                        <td>{{house.listingPrice | currency}}</td>
-                        <td>{{house.availableDate | date}}</td>
-                        <td>{{house.numOfBedroom}}</td>
-                        <td>{{house.numOfBathroom}}</td>
-                        <td>{{house.contactPhone | phone:'US'}}</td>
+                        <th>Image</th>
+                        <th>Property ID</th>
+                        <th>Property Address</th>
+                        <th>Listing Price</th>
+                        <th>Available Date</th>
+                        <th>Num of Bedrooms</th>
+                        <th>Num of Bathrooms</th>
+                        <th>Contact Phone</th>
                     </tr>
-                </ng-container>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    <ng-container *ngFor="let house of houses">
+                        <tr>
+                            <td><img [src]="house.imageUrl" [alt]="house.id"></td>
+                            <td>{{house.id}}</td>
+                            <td>{{house.address}}</td>
+                            <td>{{house.listingPrice | currency}}</td>
+                            <td>{{house.availableDate | date}}</td>
+                            <td>{{house.numOfBedroom}}</td>
+                            <td>{{house.numOfBathroom}}</td>
+                            <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
+                            <td> <button class="btn btn-primary" [disabled] = "isDisabled">Disabled</button></td>
+                            <td> <button class="btn btn-primary" disabled = "{{isDisabled}}">Disabled</button></td>
+                        </tr>
+                    </ng-container>
+                </tbody>
+            </table>
+        </div>
 
+     
+
+    </div>
 </div>
