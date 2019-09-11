@@ -3,7 +3,15 @@
 
         <div class="card-header font-weight-bold">All Listings</div>
         <div class="card-body">
-            <button class="btn btn-primary" (click)="onShowIDClicked()">{{showID?'Hide':'Show'}} ID</button>
+            
+            <div class="row">
+                <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onShowIDClicked()">{{showID?'Hide':'Show'}} ID</button>
+                
+                <input type="text" [(ngModel)]="searchTerm" class="form-control col-4 ml-auto mb-4 mr-2">
+                
+                <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onSearchClicked()"> Search</button>
+            </div>
+
             <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">
                 <thead style="background-color: lightyellow">
                     <tr>
@@ -18,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let house of houses">
+                    <ng-container *ngFor="let house of searchResult">
                         <tr>
                             <td><img [src]="house.imageUrl" [alt]="house.id"></td>
                             <td *ngIf="showID">{{house.id}}</td>
@@ -28,8 +36,6 @@
                             <td>{{house.numOfBedroom}}</td>
                             <td>{{house.numOfBathroom}}</td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
-                            <td> <button class="btn btn-primary" [disabled]="isDisabled">Disabled</button></td>
-                            <td> <button class="btn btn-primary" disabled="{{isDisabled}}">Disabled</button></td>
                         </tr>
                     </ng-container>
                 </tbody>
