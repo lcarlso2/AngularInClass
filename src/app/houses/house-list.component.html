@@ -5,15 +5,15 @@
         <div class="card-body">
             
             <div class="row">
-                <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onShowIDClicked()">{{showID?'Hide':'Show'}} ID</button>
+                <button class="col-2 btn btn-primary ml-3 mb-4 mr-3" (click)="onShowIDClicked()">{{showID?'Hide':'Show'}} ID</button>
                 
-                <input type="text" [(ngModel)]="searchTerm" class="form-control col-4 ml-auto mb-4 mr-2">
+                <input type="text" [(ngModel)]="searchTerm" class="form-control col-4 ml-auto mb-4 mr-2" (keyup)="onSearchClicked()">
                 
                 <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onSearchClicked()"> Search</button>
             </div>
 
             <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">
-                <thead style="background-color: lightyellow">
+                <thead style="background-color: #007bff">
                     <tr>
                         <th>Image</th>
                         <th *ngIf="showID">Property ID</th>
