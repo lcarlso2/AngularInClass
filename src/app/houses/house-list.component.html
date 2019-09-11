@@ -30,9 +30,9 @@
                         <tr>
                             <td><img [src]="house.imageUrl" [alt]="house.id"></td>
                             <td *ngIf="showID">{{house.id}}</td>
-                            <td>{{house.address}}</td>
+                            <td>{{house.address | titlecase}}</td>
                             <td>{{house.listingPrice | currency}}</td>
-                            <td>{{house.availableDate | date}}</td>
+                            <td>{{house.availableDate | date:'fullDate'}}</td>
                             <td>{{house.numOfBedroom}}</td>
                             <td>{{house.numOfBathroom}}</td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
