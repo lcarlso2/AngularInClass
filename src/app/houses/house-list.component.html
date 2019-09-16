@@ -17,8 +17,8 @@
             <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">
                 <thead style="background-color: #007bff">
                     <tr>
-                        <th>Image</th>
                         <th *ngIf="showID">Property ID</th>
+                        <th>Image</th>
                         <th>Property Address</th>
                         <th>Listing Price</th>
                         <th>Available Date</th>
@@ -31,8 +31,8 @@
                 <tbody>
                     <ng-container *ngFor="let house of houses | filtering : searchTerm">
                         <tr>
-                            <td><img [src]="house.imageUrl" [alt]="house.id"></td>
                             <td *ngIf="showID">{{house.id}}</td>
+                            <td><img [src]="house.imageUrl" [alt]="house.id"></td>
                             <td>{{house.address | titlecase}}</td>
                             <td>{{house.listingPrice | currency}}</td>
                             <td>{{house.availableDate | MoveDayToEndPipe}}</td>
