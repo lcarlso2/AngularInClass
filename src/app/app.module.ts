@@ -4,9 +4,12 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HouseListComponent } from './houses/house-list.component';
+import { HomeComponent } from './houses/home.component';
+
 import { PhonePipe } from './phone-pipe';
 import { MoveDayToEndPipe } from './move-day-to-end-pipe';
-import { HomeComponent } from './houses/home.component';
+import { FilteringPipe } from './filtering-pipe';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +17,8 @@ import { HomeComponent } from './houses/home.component';
     HouseListComponent,
     HomeComponent,
     PhonePipe,
-    MoveDayToEndPipe
+    MoveDayToEndPipe,
+    FilteringPipe
   ],
   imports: [
     BrowserModule,
