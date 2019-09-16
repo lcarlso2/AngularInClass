@@ -10,6 +10,8 @@
                 <input type="text" [(ngModel)]="searchTerm" class="form-control col-4 ml-auto mb-4 mr-2">
                 
                 <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onSearchClicked()"> Search</button>
+
+                <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onAdd()"> Add</button>
             </div>
 
             <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">
@@ -23,6 +25,7 @@
                         <th>Num of Bedrooms</th>
                         <th>Num of Bathrooms</th>
                         <th>Contact Phone</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -36,6 +39,7 @@
                             <td>{{house.numOfBedroom}}</td>
                             <td>{{house.numOfBathroom}}</td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
+                            <td>{{house.description}}</td>
                         </tr>
                     </ng-container>
                 </tbody>
