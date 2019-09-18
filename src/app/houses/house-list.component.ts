@@ -11,6 +11,10 @@ import { House } from './house.model';
 export class HouseListComponent{
   isDisabled:boolean = true;
 
+
+  ngOnInit(): void {
+    console.log('in OnInit');
+  }
   showID:boolean = true;
 
   private _searchTerm:string='';
