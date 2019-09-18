@@ -13,7 +13,7 @@ export class HouseListComponent{
 
   showID:boolean = true;
 
-  searchTerm:string='';
+  private _searchTerm:string='';
 
   
   houses:House[] = [
@@ -30,6 +30,14 @@ export class HouseListComponent{
 
 
 
+  get searchTerm():string{
+    return this._searchTerm;
+  }
+
+  set searchTerm(newTerm:string){
+    this._searchTerm = newTerm;
+    this.onSearchClicked();
+  }
 
   onShowIDClicked():void{
     this.showID = !this.showID;

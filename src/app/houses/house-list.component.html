@@ -29,7 +29,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <ng-container *ngFor="let house of houses | filtering : searchTerm">
+                    <!-- <ng-container *ngFor="let house of houses | filtering : searchTerm"> -->
+                    <ng-container *ngFor="let house of searchResult">
                         <tr>
                             <td *ngIf="showID">{{house.id}}</td>
                             <td><img [src]="house.imageUrl" [alt]="house.id"></td>
