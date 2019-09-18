@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { House } from './house.model';
 
 
@@ -8,13 +8,20 @@ import { House } from './house.model';
   templateUrl: './house-list.component.html',
   styleUrls: ['./house-list.component.css'],
 })
-export class HouseListComponent{
+export class HouseListComponent implements OnInit, OnChanges{
+  @Input() parentPageTitle:string;
+
   isDisabled:boolean = true;
 
+  ngOnChanges():void{
+    console.log('in on changes ' + 'parentPageTitle is: ' + this.parentPageTitle);
+  }
 
   ngOnInit(): void {
-    console.log('in OnInit');
+    console.log('in on init ' + 'parentPageTitle is: ' + this.parentPageTitle);
   }
+
+ 
   showID:boolean = true;
 
   private _searchTerm:string='';
@@ -29,6 +36,10 @@ export class HouseListComponent{
       new House(6,"567 Maple st., Carrollton, GA 30118", "Best House", 987867, new Date(),4,3.5,"7705687665","./assets/images/house6.jpeg"),
       new House(7,"777 Highway st., Carrollton, GA 30118", "Last House", 456789, new Date(),4,3.5,"7700987654","./assets/images/house7.jpeg")
   ]
+
+  constructor() {
+    console.log('in constructor ' + 'parentPageTitle is: ' + this.parentPageTitle);
+  }
 
   searchResult:House[] = this.houses;
 
