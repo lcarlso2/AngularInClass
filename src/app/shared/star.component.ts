@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
+import { Component, Input, OnChanges, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'lm-star',
