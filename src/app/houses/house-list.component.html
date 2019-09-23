@@ -1,7 +1,7 @@
 <div class="container">
     <div class="card">
 
-        <div class="card-header font-weight-bold">All Listings</div>
+        <div class="card-header font-weight-bold">All Listings <br> {{childInfo}}</div>
         <div>{{parentPageTitle}}</div>
         <div class="card-body">
             
@@ -23,6 +23,7 @@
                         <th>Property Address</th>
                         <th>Listing Price</th>
                         <th>Available Date</th>
+                        <th>Rating</th>
                         <th>Num of Bedrooms</th>
                         <th>Num of Bathrooms</th>
                         <th>Contact Phone</th>
@@ -38,6 +39,7 @@
                             <td>{{house.address | titlecase}}</td>
                             <td>{{house.listingPrice | currency}}</td>
                             <td>{{house.availableDate | MoveDayToEndPipe}}</td>
+                            <td> {{house.rating}}<lm-star [rating]="house.rating" [id]="house.id" (childEvent)='onChildEvent($event)'></lm-star></td>
                             <td>{{house.numOfBedroom}}</td>
                             <td>{{house.numOfBathroom}}</td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>

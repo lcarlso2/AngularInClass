@@ -9,6 +9,7 @@ import { HomeComponent } from './houses/home.component';
 import { PhonePipe } from './phone-pipe';
 import { MoveDayToEndPipe } from './move-day-to-end-pipe';
 import { FilteringPipe } from './filtering-pipe';
+import { StarComponent } from './shared/star.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { FilteringPipe } from './filtering-pipe';
     HomeComponent,
     PhonePipe,
     MoveDayToEndPipe,
-    FilteringPipe
+    FilteringPipe,
+    StarComponent
   ],
   imports: [
     BrowserModule,
