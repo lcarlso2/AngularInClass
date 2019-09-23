@@ -11,10 +11,7 @@ import { House } from './house.model';
 export class HouseListComponent implements OnInit, OnChanges{
 
   childInfo: string;
-  onChildEvent(eventValue:string):void{
-    this.showID = true;
-    this.childInfo = eventValue;
-  }
+ 
   @Input() parentPageTitle:string;
 
   isDisabled:boolean = true;
@@ -73,6 +70,10 @@ export class HouseListComponent implements OnInit, OnChanges{
 
   onAdd():void{
     this.houses.push(new House(this.houses.length + 1,"777 Highway st., Carrollton, GA 30118", "Last House", 456789, new Date(2019,8,9),4,3.5,"7700987654","./assets/images/house7.jpeg", 4.8));
+  }
+
+  onChildEvent(eventValue:string):void{
+    this.childInfo = eventValue;
   }
 
 }
