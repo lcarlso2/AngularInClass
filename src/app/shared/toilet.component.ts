@@ -10,11 +10,6 @@ export class ToiletComponent implements OnChanges {
 
   @Input() count: number
   bathroomList = new Array().fill(this.count);
-
-  // constructor(){
-  //   this.bathroomList = Array().fill(this.count);
-  // }
-
   
   width: number;
 
