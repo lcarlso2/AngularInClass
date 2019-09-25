@@ -10,6 +10,7 @@ import { PhonePipe } from './phone-pipe';
 import { MoveDayToEndPipe } from './move-day-to-end-pipe';
 import { FilteringPipe } from './filtering-pipe';
 import { StarComponent } from './shared/star.component';
+import { ToiletComponent } from './shared/toilet.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { StarComponent } from './shared/star.component';
     PhonePipe,
     MoveDayToEndPipe,
     FilteringPipe,
-    StarComponent
+    StarComponent,
+    ToiletComponent
   ],
   imports: [
     BrowserModule,

@@ -41,7 +41,7 @@
                             <td>{{house.availableDate | MoveDayToEndPipe}}</td>
                             <td> {{house.rating}}<lm-star [rating]="house.rating" [id]="house.id" (childEvent)='onChildEvent($event)'></lm-star></td>
                             <td>{{house.numOfBedroom}}</td>
-                            <td>{{house.numOfBathroom}}</td>
+                            <td> {{house.numOfBathroom}}<lm-toilet [count]=house.numOfBathroom></lm-toilet></td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
                             <td>{{house.description}}</td>
                         </tr>
