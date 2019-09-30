@@ -4,11 +4,11 @@ import { FormsModule } from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { HouseListComponent } from './houses/house-list.component';
-import { HomeComponent } from './houses/home.component';
+import { HomeComponent } from './home/home.component';
 
-import { PhonePipe } from './phone-pipe';
-import { MoveDayToEndPipe } from './move-day-to-end-pipe';
-import { FilteringPipe } from './filtering-pipe';
+import { PhonePipe } from './pipes/phone-pipe';
+import { MoveDayToEndPipe } from './pipes/move-day-to-end-pipe';
+import { FilteringPipe } from './pipes/filtering-pipe';
 import { StarComponent } from './shared/star.component';
 import { ToiletComponent } from './shared/toilet.component';
 
