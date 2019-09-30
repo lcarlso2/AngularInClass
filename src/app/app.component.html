@@ -1,7 +1,8 @@
 <div class="container">
-    <h1>Welcome to {{pageTitle}}</h1>
 
-    <lm-houselist [parentPageTitle]="pageTitle"></lm-houselist>
+    <lm-menu> </lm-menu>
+<!-- 
+    <lm-houselist [parentPageTitle]="pageTitle"></lm-houselist> -->
+    <router-outlet></router-outlet>
 
-    <lm-homecomponent></lm-homecomponent>
-</div>+
+</div>

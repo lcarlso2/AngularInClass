@@ -19,4 +19,8 @@ export class HouseService {
       new House(7,"777 Highway st., Carrollton, GA 30118", "Last House", 456789, new Date(),4,1,"7700987654","./assets/images/house7.jpeg", 3.2)
     ]
   }
+
+  getHouseBy(id: number) : House {
+    return this.getHouses().find(curr => curr.id === id);
+  }
 }

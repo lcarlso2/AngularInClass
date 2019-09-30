@@ -2,7 +2,6 @@
     <div class="card">
 
         <div class="card-header font-weight-bold">All Listings <br> {{childInfo}}</div>
-        <div>{{parentPageTitle}}</div>
         <div class="card-body">
             
             <div class="row">
@@ -18,33 +17,36 @@
             <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">
                 <thead>
                     <tr>
-                        <th *ngIf="showID">Property ID</th>
+                        <!-- <th *ngIf="showID">Property ID</th> -->
                         <th>Image</th>
-                        <th>Property Address</th>
+                        <!-- <th>Property Address</th> -->
                         <th>Listing Price</th>
                         <th>Available Date</th>
                         <th>Rating</th>
-                        <th>Num of Bedrooms</th>
+                        <!-- <th>Num of Bedrooms</th> -->
                         <th>Num of Bathrooms</th>
                         <th>Contact Phone</th>
-                        <th>Description</th>
+                        <!-- <th>Description</th> -->
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- <ng-container *ngFor="let house of houses | filtering : searchTerm"> -->
                     <ng-container *ngFor="let house of searchResult">
                         <tr>
-                            <td *ngIf="showID">{{house.id}}</td>
+                            <!-- <td *ngIf="showID">{{house.id}}</td> -->
                             <td><img [src]="house.imageUrl" [alt]="house.id"></td>
-                            <td>{{house.address | titlecase}}</td>
+                            <!-- <td>{{house.address | titlecase}}</td> -->
                             <td>{{house.listingPrice | currency}}</td>
                             <td>{{house.availableDate | MoveDayToEndPipe}}</td>
                             <td> {{house.rating}}<lm-star [rating]="house.rating" [id]="house.id" (childEvent)='onChildEvent($event)'></lm-star></td>
-                            <td>{{house.numOfBedroom}}</td>
+                            <!-- <td>{{house.numOfBedroom}}</td> -->
                             <td> {{house.numOfBathroom}}<lm-toilet [count]=house.numOfBathroom></lm-toilet></td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
-                            <td>{{house.description}}</td>
+                            <!-- <td>{{house.description}}</td> -->
+                            <td><button class="btn btn-secondary" [routerLink]="['/houses', house.id]">View</button></td>
                         </tr>
+                        
                     </ng-container>
                 </tbody>
             </table>
