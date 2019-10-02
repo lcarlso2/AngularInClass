@@ -12,8 +12,6 @@ export class HouseDetailComponent implements OnInit {
 
   currentHouse: House;
 
-
-
   constructor(private route: ActivatedRoute, private houseService: HouseService) {
 
   }

@@ -10,10 +10,13 @@ import { HomeComponent } from './home/home.component';
 import { PhonePipe } from './pipes/phone-pipe';
 import { MoveDayToEndPipe } from './pipes/move-day-to-end-pipe';
 import { FilteringPipe } from './pipes/filtering-pipe';
-import { StarComponent } from './shared/star.component';
-import { ToiletComponent } from './shared/toilet.component';
+
 import { MenuComponent } from './menu/menu.component';
 import { HouseDetailComponent } from './houses/house-detail.component';
+
+import { StarComponent } from './shared/star.component';
+import { ToiletComponent } from './shared/toilet.component';
+import { HeartComponent } from './shared/heart/heart.component';
 
 
 @NgModule({
@@ -27,7 +30,8 @@ import { HouseDetailComponent } from './houses/house-detail.component';
     StarComponent,
     ToiletComponent,
     MenuComponent,
-    HouseDetailComponent
+    HouseDetailComponent,
+    HeartComponent
   ],
   imports: [
     BrowserModule,
