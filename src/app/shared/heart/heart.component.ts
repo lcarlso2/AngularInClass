@@ -19,13 +19,11 @@ export class HeartComponent implements OnInit {
 
   ngOnInit() {
     this.currentHouse = this.houseService.getHouseBy(this.id);
-    console.log(`current of id likes in onit------` + this.id  + `----` + this.currentHouse.likes)
   }
 
 
   onHeartClick() {
     this.currentHouse.likes += 1;
-    console.log("current likes in click----------" + this.currentHouse.likes)
   }
 
 }
