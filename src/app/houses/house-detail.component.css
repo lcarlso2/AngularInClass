@@ -1,5 +1,38 @@
+.overlay {
+    margin-left: auto;
+    margin-right: auto;
+ 
+    position: relative;
+}
+
 img {
-    width: 250px;
-    max-width: 250px;
+    width: 100%;
+    height: auto;
+}
+.card-header{
     text-align: center;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-footer {
+    text-align: center;
+}
+
+.image-overlay-right {
+    position: absolute;
+    top: 8px;
+    right: 0px;
+    font-size: 25px;
+    color: Red;
+}
+
+.image-overlay-left {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    font-size: 50px;
+    color: red;
 }
