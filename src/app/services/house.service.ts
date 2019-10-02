@@ -23,6 +23,6 @@ export class HouseService {
   }
 
   getHouseBy(id: number): House {
-    return this.getHouses().find(curr => curr.id === id);
+    return this.houses.find(curr => curr.id === id);
   }
 }
