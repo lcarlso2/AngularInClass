@@ -18,6 +18,8 @@ import { StarComponent } from './shared/star.component';
 import { ToiletComponent } from './shared/toilet.component';
 import { HeartComponent } from './shared/heart/heart.component';
 
+import { HttpClientModule } from '@angular/common/http'
+
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { HeartComponent } from './shared/heart/heart.component';
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: 'houses', component: HouseListComponent},
       {path: 'home', component: HomeComponent},

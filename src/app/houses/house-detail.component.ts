@@ -19,7 +19,8 @@ export class HouseDetailComponent implements OnInit {
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
 
-    this.currentHouse = this.houseService.getHouseBy(id);
+    //this.currentHouse = this.houseService.getHouseBy(id);
+    console.log(this.houseService.getHouseBy(id))
   }
 
 

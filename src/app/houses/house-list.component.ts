@@ -8,67 +8,72 @@ import { HouseService } from '../services/house.service';
   templateUrl: './house-list.component.html',
   styleUrls: ['./house-list.component.css'],
 })
-export class HouseListComponent implements OnInit, OnChanges{
+export class HouseListComponent implements OnInit, OnChanges {
+
+  errorMessage: string;
 
   childInfo: string;
- 
-  @Input() parentPageTitle:string;
 
-  isDisabled:boolean = true;
+  @Input() parentPageTitle: string;
 
-  ngOnChanges():void{
+  isDisabled: boolean = true;
+
+  
+  showID: boolean = true;
+
+  private _searchTerm: string = '';
+
+  houses: House[];
+  
+  searchResult: House[] = this.houses;
+
+  ngOnChanges(): void {
     console.log('in on changes ' + 'parentPageTitle is: ' + this.parentPageTitle);
   }
 
   ngOnInit(): void {
-    console.log('in on init ' + 'parentPageTitle is: ' + this.parentPageTitle);
+    this.houseService.getHouses().subscribe(houses => {
+      this.houses = houses;
+      this.searchResult = this.houses;
+    },
+      error => this.errorMessage = error
+    );
   }
 
- 
-  showID:boolean = true;
 
-  private _searchTerm:string='';
-
-  
-  houses:House[];
 
   constructor(private houseService: HouseService) {
-    this.houses = this.houseService.getHouses();
     this.searchResult = this.houses;
     this.childInfo = '';
-    
+
   }
 
-  searchResult:House[] = this.houses;
-
-
-
-  get searchTerm():string{
+  get searchTerm(): string {
     return this._searchTerm;
   }
 
-  set searchTerm(newTerm:string){
+  set searchTerm(newTerm: string) {
     this._searchTerm = newTerm;
     this.onSearchClicked();
   }
 
-  onShowIDClicked():void{
+  onShowIDClicked(): void {
     this.showID = !this.showID;
   }
 
 
-  onSearchClicked():void{
-    this.searchResult = this.searchTerm && this.searchTerm.length>0 ? 
-    this.houses.filter( house => house.address.toLowerCase().includes(this.searchTerm)) 
-    : this.houses;
+  onSearchClicked(): void {
+    this.searchResult = this.searchTerm && this.searchTerm.length > 0 ?
+      this.houses.filter(house => house.address.toLowerCase().includes(this.searchTerm))
+      : this.houses;
   }
 
 
-  onAdd():void{
-    this.houses.push(new House(this.houses.length + 1,"777 Highway st., Carrollton, GA 30118", "Last House", 456789, new Date(2019,8,9),4,3.5,"7700987654","./assets/images/house7.jpeg", 4.8, 0));
+  onAdd(): void {
+    this.houses.push(new House(this.houses.length + 1, "777 Highway st., Carrollton, GA 30118", "Last House", 456789, new Date(2019, 8, 9), 4, 3.5, "7700987654", "./assets/images/house7.jpeg", 4.8, 0));
   }
 
-  onChildEvent(eventValue:string):void{
+  onChildEvent(eventValue: string): void {
     this.childInfo = eventValue;
   }
 
