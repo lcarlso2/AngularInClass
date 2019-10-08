@@ -18,7 +18,7 @@ export class HeartComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentHouse = this.houseService.getHouseBy(this.id);
+   // this.currentHouse = this.houseService.getHouseBy(this.id);
   }
 
 

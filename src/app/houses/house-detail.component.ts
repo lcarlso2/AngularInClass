@@ -10,6 +10,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HouseDetailComponent implements OnInit {
 
+  errorMessage: string;
+
   currentHouse: House;
 
   constructor(private route: ActivatedRoute, private houseService: HouseService) {
@@ -19,8 +21,11 @@ export class HouseDetailComponent implements OnInit {
   ngOnInit() {
     let id = +this.route.snapshot.paramMap.get('id');
 
-    //this.currentHouse = this.houseService.getHouseBy(id);
-    console.log(this.houseService.getHouseBy(id))
+    this.houseService.getHouseBy(id).subscribe( houses => {
+      this.currentHouse = houses[0]
+    },
+    error => this.errorMessage = error 
+    );
   }
 
 
