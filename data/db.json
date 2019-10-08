@@ -1,96 +1,95 @@
 {
-    "houses": [
-        {
-            "id": 1,
-            "address": "1600 Maple st., Carrollton, GA 30118",
-            "description": "must see this beautiful house",
-            "listingPrice": 2870780,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 4,
-            "numOfBathroom": 2.5,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house1.jpeg",
-            "rating" : 2.5,
-            "likes": 0
-        },
-        {
-            "id": 2,
-            "address": "888 Burge st., Carrollton, GA 30118",
-            "description": "must not see this terrible house",
-            "listingPrice": 2760000,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 3,
-            "numOfBathroom": 1.5,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house2.jpeg",
-            "rating" : 1.5,
-            "likes": 0
-        },
-        {
-            "id": 3,
-            "address": "222 Maple st., Carrollton, GA 30118",
-            "description": "honestly.... its trash",
-            "listingPrice": 260000,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 2,
-            "numOfBathroom": 2.5,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house3.jpeg",
-            "rating" : 3.5,
-            "likes": 0
-        },
-        {
-            "id": 4,
-            "address": "456 Maple st., Carrollton, GA 30118",
-            "description": "Hope you like cardboard boxes",
-            "listingPrice": 10000,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 4.5,
-            "numOfBathroom": 2,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house4.jpeg",
-            "rating" : 4.5,
-            "likes": 0
-        },
-        {
-            "id": 5,
-            "address": "890 Maple st., Carrollton, GA 30118",
-            "description": "J-LO lived here",
-            "listingPrice": 50000,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 4,
-            "numOfBathroom": 2.5,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house5.jpeg",
-            "rating" : 5,
-            "likes": 0
-        },
-        {
-            "id": 6,
-            "address": "567 Maple st., Carrollton, GA 30118",
-            "description": "J-LO definitely didn't live here",
-            "listingPrice": 350000,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 4,
-            "numOfBathroom": 2.5,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house6.jpeg",
-            "rating" : 1.5,
-            "likes": 0
-        },
-        {
-            "id": 7,
-            "address": "123 Maple st., Carrollton, GA 30118",
-            "description": "MR T partied here",
-            "listingPrice": 150000,
-            "availableDate": "2019/10/9",
-            "numOfBedroom": 4,
-            "numOfBathroom": 2.5,
-            "contactPhone": "3454412344",
-            "imageUrl": "assets/images/house7.jpeg",
-            "rating" : 1.5,
-            "likes": 0
-        }
-
-    ]
+  "houses": [
+    {
+      "id": 1,
+      "address": "1600 Maple st., Carrollton, GA 30118",
+      "description": "must see this beautiful house",
+      "listingPrice": 2870780,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 4,
+      "numOfBathroom": 2.5,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house1.jpeg",
+      "rating": 2.5,
+      "likes": 8
+    },
+    {
+      "id": 2,
+      "address": "888 Burge st., Carrollton, GA 30118",
+      "description": "must not see this terrible house",
+      "listingPrice": 2760000,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 3,
+      "numOfBathroom": 1.5,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house2.jpeg",
+      "rating": 1.5,
+      "likes": 0
+    },
+    {
+      "id": 3,
+      "address": "222 Maple st., Carrollton, GA 30118",
+      "description": "honestly.... its trash",
+      "listingPrice": 260000,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 2,
+      "numOfBathroom": 2.5,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house3.jpeg",
+      "rating": 3.5,
+      "likes": 0
+    },
+    {
+      "id": 4,
+      "address": "456 Maple st., Carrollton, GA 30118",
+      "description": "Hope you like cardboard boxes",
+      "listingPrice": 10000,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 4.5,
+      "numOfBathroom": 2,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house4.jpeg",
+      "rating": 4.5,
+      "likes": 0
+    },
+    {
+      "id": 5,
+      "address": "890 Maple st., Carrollton, GA 30118",
+      "description": "J-LO lived here",
+      "listingPrice": 50000,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 4,
+      "numOfBathroom": 2.5,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house5.jpeg",
+      "rating": 5,
+      "likes": 0
+    },
+    {
+      "id": 6,
+      "address": "567 Maple st., Carrollton, GA 30118",
+      "description": "J-LO definitely didn't live here",
+      "listingPrice": 350000,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 4,
+      "numOfBathroom": 2.5,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house6.jpeg",
+      "rating": 1.5,
+      "likes": 0
+    },
+    {
+      "id": 7,
+      "address": "123 Maple st., Carrollton, GA 30118",
+      "description": "MR T partied here",
+      "listingPrice": 150000,
+      "availableDate": "2019/10/9",
+      "numOfBedroom": 4,
+      "numOfBathroom": 2.5,
+      "contactPhone": "3454412344",
+      "imageUrl": "assets/images/house7.jpeg",
+      "rating": 1.5,
+      "likes": 0
+    }
+  ]
 }

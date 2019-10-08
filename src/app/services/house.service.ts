@@ -28,10 +28,14 @@ export class HouseService {
       tap(data => console.log('All' + JSON.stringify(data))), catchError(this.handleError));
   }
 
-  getHouseBy(id: number): Observable<House[]> {
-    console.log(this.url + `/${id}`)
-    return this.http.get<House[]>(this.url + `/${id}`).pipe(
+  getHouseBy(id: number): Observable<House> {
+    return this.http.get<House>(this.url + `/${id}`).pipe(
       tap(data => console.log('All' + JSON.stringify(data))), catchError(this.handleError));
+  }
+
+  updateHouse(currentHouse: House) {
+    let tempUrl = this.url + `/${currentHouse.id}`; 
+    this.http.put(tempUrl, currentHouse).subscribe();
   }
 
   handleError(error: HttpErrorResponse) {

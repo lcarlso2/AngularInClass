@@ -10,22 +10,33 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HouseDetailComponent implements OnInit {
 
+  id: number;
+
   errorMessage: string;
 
   currentHouse: House;
+
+  initialLikes: number;
 
   constructor(private route: ActivatedRoute, private houseService: HouseService) {
 
   }
 
   ngOnInit() {
-    let id = +this.route.snapshot.paramMap.get('id');
+    this.id = +this.route.snapshot.paramMap.get('id');
 
-    this.houseService.getHouseBy(id).subscribe( houses => {
-      this.currentHouse = houses[0]
+    this.houseService.getHouseBy(this.id).subscribe(house => {
+      this.currentHouse = house
+      this.initialLikes = this.currentHouse.likes;
     },
-    error => this.errorMessage = error 
+      error => this.errorMessage = error
     );
+  }
+
+  onBackClick() {
+    if (this.currentHouse.likes != this.initialLikes) {
+      this.houseService.updateHouse(this.currentHouse);
+    }
   }
 
 

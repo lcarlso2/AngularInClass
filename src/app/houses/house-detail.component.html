@@ -2,20 +2,20 @@
     <div class="card">
         <div class="card-header">
             <div class="overlay">
-                <img src="{{currentHouse.imageUrl}}" alt="{{currentHouse.id}}">
-                <div class="image-overlay-left"> Call: {{currentHouse.contactPhone | phone: 'US'}}</div>
+                <img src="{{currentHouse?.imageUrl}}" alt="{{currentHouse?.id}}">
+                <div class="image-overlay-left"> Call: {{currentHouse?.contactPhone | phone: 'US'}}</div>
                 <div class="image-overlay-right">
-                    <lm-heart [id]="currentHouse.id"></lm-heart>
+                    <lm-heart [currentHouse]="currentHouse"></lm-heart>
                 </div>
             </div>
         </div>
 
-        <div class="card-body">A {{currentHouse.description}} for only {{currentHouse.listingPrice | currency}} with an
-            impressive rating of {{currentHouse.rating}}. This house has plenty
-            of space with {{currentHouse.numOfBathroom}} bathrooms and {{currentHouse.numOfBedroom}} bedrooms. Be
-            quick! This was listed on {{currentHouse.availableDate| date}}. The house is at {{currentHouse.address}}.
+        <div class="card-body">A {{currentHouse?.description}} for only {{currentHouse?.listingPrice | currency}} with an
+            impressive rating of {{currentHouse?.rating}}. This house has plenty
+            of space with {{currentHouse?.numOfBathroom}} bathrooms and {{currentHouse?.numOfBedroom}} bedrooms. Be
+            quick! This was listed on {{currentHouse?.availableDate| date}}. The house is at {{currentHouse?.address}}.
         </div>
-        <div class="card-footer"> <button class="btn btn-secondary" [routerLink]='["/houses"]'>Back</button></div>
+        <div class="card-footer"> <button class="btn btn-secondary" [routerLink]='["/houses"]' (click)="onBackClick()" >Back</button></div>
 
     </div>
 </div>

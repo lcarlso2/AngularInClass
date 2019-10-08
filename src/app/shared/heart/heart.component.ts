@@ -9,20 +9,21 @@ import { House } from 'src/app/houses/house.model';
 })
 export class HeartComponent implements OnInit {
   
-  @Input() id: number
+  @Input() currentHouse: House
 
-  currentHouse : House;
 
   constructor(private houseService: HouseService) { 
 
   }
 
   ngOnInit() {
-   // this.currentHouse = this.houseService.getHouseBy(this.id);
+  
+
   }
 
 
   onHeartClick() {
+
     this.currentHouse.likes += 1;
   }
 
