@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { HouseListComponent } from './houses/house-list.component';
+import { HouseListComponent } from './houses/house-list.component/house-list.component';
 import { HomeComponent } from './home/home.component';
 
 import { PhonePipe } from './pipes/phone-pipe';
@@ -12,14 +12,14 @@ import { MoveDayToEndPipe } from './pipes/move-day-to-end-pipe';
 import { FilteringPipe } from './pipes/filtering-pipe';
 
 import { MenuComponent } from './menu/menu.component';
-import { HouseDetailComponent } from './houses/house-detail.component';
+import { HouseDetailComponent } from './houses/house-detail-component/house-detail.component';
 
 import { StarComponent } from './shared/star/star.component';
 import { ToiletComponent } from './shared/toilet/toilet.component';
 import { HeartComponent } from './shared/heart/heart.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HouseCreateComponent } from './houses/house-create.component'
+import { HouseCreateComponent } from './houses/house-create-component/house-create.component'
 
 
 @NgModule({

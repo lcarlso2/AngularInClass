@@ -90,6 +90,12 @@
       "imageUrl": "assets/images/house7.jpeg",
       "rating": 1.5,
       "likes": 0
+    },
+    {
+      "id": 8,
+      "availableDate": null,
+      "rating": 0,
+      "likes": 0
     }
   ]
 }
