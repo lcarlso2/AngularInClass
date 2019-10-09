@@ -28,10 +28,21 @@ export class HouseListComponent implements OnInit, OnChanges {
   searchResult: House[] = this.houses;
 
   ngOnChanges(): void {
-    console.log('in on changes ' + 'parentPageTitle is: ' + this.parentPageTitle);
+    this.houseService.getHouses().subscribe(houses => {
+      this.houses = houses;
+      this.searchResult = this.houses;
+    },
+      error => this.errorMessage = error
+    );
   }
 
   ngOnInit(): void {
+    this.houseService.getHouses().subscribe(houses => {
+      this.houses = houses;
+      this.searchResult = this.houses;
+    },
+      error => this.errorMessage = error
+    );
   }
 
 

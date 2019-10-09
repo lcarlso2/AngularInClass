@@ -4,7 +4,7 @@
             <h3>Enter the information for creating a house!</h3>
         </div>
         <div class="card-body">
-            <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)" name="test">
+            <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
                 <div class="form-group">
                     <label for="address">Address</label>
                     <input placeholder="Address" [(ngModel)]="address" name="haddress" type="text" class="form-control" id="address" required>
@@ -45,7 +45,7 @@
                         class="form-control" id="fileName">
                 </div>
 
-                <button type="submit" ng-disabled="test.fileName.$dirty && test.fileName.$invalid"
+                <button type="submit" [(disabled)]="isDisabled"
                     class="btn btn-success">Submit</button>
             </form>
         </div>
