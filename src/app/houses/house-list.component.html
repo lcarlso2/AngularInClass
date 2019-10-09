@@ -11,7 +11,7 @@
                 
                 <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onSearchClicked()"> Search</button>
 
-                <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onAdd()"> Add</button>
+                <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" [routerLink]="['/create']"> Add</button>
             </div>
 
             <table *ngIf="houses && houses.length > 0" class="table-striped" cellspacing="50">

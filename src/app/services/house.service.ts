@@ -38,6 +38,10 @@ export class HouseService {
     this.http.put(tempUrl, currentHouse).subscribe();
   }
 
+  createHouse(house: House){
+    this.http.post(this.url, house).pipe(tap(data =>console.log('All' + JSON.stringify(data))), catchError(this.handleError)).subscribe();
+  }
+
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

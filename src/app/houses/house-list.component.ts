@@ -32,17 +32,17 @@ export class HouseListComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+  }
+
+
+
+  constructor(private houseService: HouseService) {
     this.houseService.getHouses().subscribe(houses => {
       this.houses = houses;
       this.searchResult = this.houses;
     },
       error => this.errorMessage = error
     );
-  }
-
-
-
-  constructor(private houseService: HouseService) {
     this.searchResult = this.houses;
     this.childInfo = '';
 
