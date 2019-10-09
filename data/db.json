@@ -11,7 +11,7 @@
       "contactPhone": "3454412344",
       "imageUrl": "assets/images/house1.jpeg",
       "rating": 2.5,
-      "likes": 10
+      "likes": 12
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@
       "contactPhone": "3454412344",
       "imageUrl": "assets/images/house2.jpeg",
       "rating": 1.5,
-      "likes": 0
+      "likes": 2
     },
     {
       "id": 3,

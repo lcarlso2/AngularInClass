@@ -16,8 +16,6 @@ export class HouseDetailComponent implements OnInit {
 
   currentHouse: House;
 
-  initialLikes: number;
-
   constructor(private route: ActivatedRoute, private houseService: HouseService) {
 
   }
@@ -27,16 +25,14 @@ export class HouseDetailComponent implements OnInit {
 
     this.houseService.getHouseBy(this.id).subscribe(house => {
       this.currentHouse = house
-      this.initialLikes = this.currentHouse.likes;
     },
       error => this.errorMessage = error
     );
   }
 
   onBackClick() {
-    if (this.currentHouse.likes != this.initialLikes) {
-      this.houseService.updateHouse(this.currentHouse);
-    }
+    this.houseService.updateHouse(this.currentHouse);
+    
   }
 
 
