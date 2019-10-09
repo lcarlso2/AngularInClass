@@ -14,11 +14,12 @@ import { FilteringPipe } from './pipes/filtering-pipe';
 import { MenuComponent } from './menu/menu.component';
 import { HouseDetailComponent } from './houses/house-detail.component';
 
-import { StarComponent } from './shared/star.component';
-import { ToiletComponent } from './shared/toilet.component';
+import { StarComponent } from './shared/star/star.component';
+import { ToiletComponent } from './shared/toilet/toilet.component';
 import { HeartComponent } from './shared/heart/heart.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { HouseCreateComponent } from './houses/house-create.component'
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http'
     ToiletComponent,
     MenuComponent,
     HouseDetailComponent,
-    HeartComponent
+    HeartComponent,
+    HouseCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http'
       {path: 'houses', component: HouseListComponent},
       {path: 'home', component: HomeComponent},
       {path: 'houses/:id', component: HouseDetailComponent},
+      {path: 'create', component: HouseCreateComponent},
       {path : '', redirectTo:'home', pathMatch:'full'},
       {path: '**', redirectTo:'home', pathMatch:'full'},
     ])
