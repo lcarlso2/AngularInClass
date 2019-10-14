@@ -36,8 +36,8 @@ export class HouseCreateComponent implements DoCheck {
   onSubmit() {
 
     let house = new House(null, this.address, this.description, this.listingPrice, new Date(this.availableDate), this.numOfBedroom, this.numOfBathroom, this.contactPhone, this.imageUrl, 0, 0);
-    this.houseService.createHouse(house);
-    this.router.navigate(["/houses"]);
+    this.houseService.createHouse(house).subscribe( house => this.router.navigate(["/houses"]) );
+    
   }
 
 

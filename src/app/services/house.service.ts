@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { House } from '../houses/house.model';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators'
 
@@ -34,12 +34,20 @@ export class HouseService {
   }
 
   updateHouse(currentHouse: House) {
-    let tempUrl = this.url + `/${currentHouse.id}`; 
+    let tempUrl = this.url + `/${currentHouse.id}`;
     this.http.patch(tempUrl, currentHouse).subscribe();
   }
 
-  createHouse(house: House){
-    this.http.post(this.url, house).pipe(tap(data =>console.log('All' + JSON.stringify(data))), catchError(this.handleError)).subscribe();
+  createHouse(house: House) {
+    return this.http.post(this.url, house).pipe(tap(data => console.log('All' + JSON.stringify(data))), catchError(this.handleError));
+  }
+
+  deleteHouse(house: House) : Observable<void>{
+    let tempUrl = this.url + `/${house.id}`;
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.delete<void>(tempUrl, httpOptions).pipe(tap( () => console.log("Success")), catchError(this.handleError));
   }
 
   handleError(error: HttpErrorResponse) {

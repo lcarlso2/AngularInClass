@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { House } from '../house.model';
 import { HouseService } from '../../services/house.service';
+import { Router } from '@angular/router';
 
 
 
@@ -10,6 +11,8 @@ import { HouseService } from '../../services/house.service';
 })
 export class HouseListComponent implements OnInit, OnChanges {
 
+  
+
   errorMessage: string;
 
   childInfo: string;
@@ -18,13 +21,13 @@ export class HouseListComponent implements OnInit, OnChanges {
 
   isDisabled: boolean = true;
 
-  
+
   showID: boolean = true;
 
   private _searchTerm: string = '';
 
   houses: House[];
-  
+
   searchResult: House[] = this.houses;
 
   ngOnChanges(): void {
@@ -47,16 +50,8 @@ export class HouseListComponent implements OnInit, OnChanges {
 
 
 
-  constructor(private houseService: HouseService) {
-    this.houseService.getHouses().subscribe(houses => {
-      this.houses = houses;
-      this.searchResult = this.houses;
-    },
-      error => this.errorMessage = error
-    );
-    this.searchResult = this.houses;
+  constructor(private houseService: HouseService, private router: Router) {
     this.childInfo = '';
-
   }
 
   get searchTerm(): string {
@@ -77,6 +72,24 @@ export class HouseListComponent implements OnInit, OnChanges {
     this.searchResult = this.searchTerm && this.searchTerm.length > 0 ?
       this.houses.filter(house => house.address.toLowerCase().includes(this.searchTerm))
       : this.houses;
+  }
+
+  onClickDelete(house: House): void {
+    if (confirm("Confirm Delete")) {
+      this.houseService.deleteHouse(house).subscribe(
+        () => {
+          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+          this.router.onSameUrlNavigation = 'reload';
+          this.router.navigate(['/houses']);
+
+        },
+        error => this.errorMessage = error
+      );
+    }
+  }
+
+  onClickEdit(house: House): void {
+
   }
 
 

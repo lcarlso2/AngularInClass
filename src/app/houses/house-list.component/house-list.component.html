@@ -45,6 +45,9 @@
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
                             <!-- <td>{{house.description}}</td> -->
                             <td><button class="btn btn-secondary" [routerLink]="['/houses', house.id]">View</button></td>
+                            <td><button class="btn btn-secondary" [routerLink]="['/houses', house.id]" (click)="onClickEdit(house)">Edit</button></td>
+                            <td><button class="btn btn-secondary" (click)="onClickDelete(house)">Delete</button></td>
+                            
                         </tr>
                         
                     </ng-container>
