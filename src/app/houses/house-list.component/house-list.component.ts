@@ -28,12 +28,12 @@ export class HouseListComponent implements OnInit, OnChanges {
   searchResult: House[] = this.houses;
 
   ngOnChanges(): void {
-    this.houseService.getHouses().subscribe(houses => {
-      this.houses = houses;
-      this.searchResult = this.houses;
-    },
-      error => this.errorMessage = error
-    );
+    // this.houseService.getHouses().subscribe(houses => {
+    //   this.houses = houses;
+    //   this.searchResult = this.houses;
+    // },
+    //   error => this.errorMessage = error
+    // );
   }
 
   ngOnInit(): void {

@@ -90,6 +90,32 @@
       "imageUrl": "assets/images/house7.jpeg",
       "rating": 1.5,
       "likes": 0
+    },
+    {
+      "id": 8,
+      "address": "TEST1",
+      "description": "test2",
+      "listingPrice": 5646,
+      "availableDate": "2019-10-17T00:00:00.000Z",
+      "numOfBedroom": 4,
+      "numOfBathroom": 3,
+      "contactPhone": "7704353454",
+      "imageUrl": "test",
+      "rating": 0,
+      "likes": 0
+    },
+    {
+      "id": 9,
+      "address": "TEST1",
+      "description": "test2",
+      "listingPrice": 43,
+      "availableDate": "2019-10-16T00:00:00.000Z",
+      "numOfBedroom": 3,
+      "numOfBathroom": 3,
+      "contactPhone": "7704353454",
+      "imageUrl": "test",
+      "rating": 0,
+      "likes": 0
     }
   ]
 }
