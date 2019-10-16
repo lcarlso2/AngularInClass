@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
 })
 export class HouseCreateComponent  {
   
+  title = "Enter the information for creating a house!";
 
   house: House;
 
-  onChildEvent(house: House): void {    
+  onChildEvent(house: House): void {   
+    console.log(house); 
     this.houseService.createHouse(house).subscribe( house => this.router.navigate(["/houses"]) );
   }
 

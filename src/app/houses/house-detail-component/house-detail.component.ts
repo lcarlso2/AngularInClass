@@ -31,7 +31,7 @@ export class HouseDetailComponent implements OnInit {
   }
 
   onBackClick() {
-    this.houseService.updateHouse(this.currentHouse);
+    this.houseService.updateHouse(this.currentHouse).subscribe();
     
   }
 

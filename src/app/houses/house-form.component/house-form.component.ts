@@ -2,6 +2,7 @@ import { Component, OnChanges, SimpleChanges, DoCheck, Output, EventEmitter, Inp
 import { HouseService } from '../../services/house.service';
 import { House } from '../house.model';
 import { Router } from '@angular/router';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'lm-house-form',
@@ -10,15 +11,19 @@ import { Router } from '@angular/router';
 })
 export class HouseFormComponent implements DoCheck, OnInit {
 
-
-  @Input() house: House;
+  @Input() title: string;
+  @Input() inputHouse: House;
   @Output() childEvent: EventEmitter<House> = new EventEmitter<House>();
 
   ngDoCheck() {
     try {
-      if (this.currentHouse.address.length == null || this.currentHouse.description.length == null || this.currentHouse.listingPrice == null
-        || this.currentHouse.availableDate == null || this.currentHouse.numOfBedroom == null || this.currentHouse.numOfBathroom == null
-        || this.currentHouse.contactPhone.length == null || this.currentHouse.imageUrl.length == null) {
+      if (this.houseDisplaying.address.length == 0 || this.houseDisplaying.description.length == 0 || this.houseDisplaying.listingPrice == null
+        || this.houseDisplaying.numOfBedroom == null || this.houseDisplaying.numOfBathroom == null
+        || this.houseDisplaying.contactPhone.length == 0 || this.houseDisplaying.imageUrl.length == 0
+        // || this.houseDisplaying.availableDate == null) { 
+      ){
+          
+
         this.isDisabled = true;
       } else {
         this.isDisabled = false;
@@ -29,28 +34,19 @@ export class HouseFormComponent implements DoCheck, OnInit {
     }
   }
 
-  currentHouse: House;
-
-  address: string;
-  description: string;
-  listingPrice: number;
-  availableDate: Date;
-  numOfBedroom: number;
-  numOfBathroom: number;
-  contactPhone: string;
-  imageUrl: string;
-  errorMessage: string;
+  houseDisplaying: House;
 
   isDisabled: boolean;
 
   onSubmit() {
-    if (this.house.address == null) {
-      let house = new House(null, this.address, this.description, this.listingPrice, this.availableDate, this.numOfBedroom, this.numOfBathroom, this.contactPhone, this.imageUrl, 0, 0);
+    if (this.inputHouse.address == null) {
+      let house = new House(null, this.houseDisplaying.address, this.houseDisplaying.description, 454545,
+        new Date(), 3, 3, this.houseDisplaying.contactPhone, "assets/images/house7.jpeg", 2, 0);
       this.childEvent.emit(house);
     } else {
-      this.childEvent.emit(this.house)
+      this.childEvent.emit(this.houseDisplaying)
     }
-    // this.houseService.createHouse(house).subscribe( house => this.router.navigate(["/houses"]) );
+
   }
 
 
@@ -60,12 +56,18 @@ export class HouseFormComponent implements DoCheck, OnInit {
   }
 
   ngOnInit(): void {
-    this.currentHouse = new House(null, null, null, null, null, null, null, null, null, null, null);
-    this.currentHouse.address = this.house.address;
-    this.currentHouse.description = this.house.description;
-    this.currentHouse.availableDate = this.house.availableDate;
-    this.currentHouse.contactPhone = this.house.contactPhone;
-    this.currentHouse.imageUrl = this.house.imageUrl;
+    this.houseDisplaying = new House(null, null, null, null, null, null, null, null, null, null, null);
+    this.houseDisplaying.id = this.inputHouse.id;
+    this.houseDisplaying.address = this.inputHouse.address;
+    this.houseDisplaying.description = this.inputHouse.description;
+    this.houseDisplaying.listingPrice = this.inputHouse.listingPrice;
+    this.houseDisplaying.availableDate = this.inputHouse.availableDate;
+    this.houseDisplaying.numOfBedroom = this.inputHouse.numOfBedroom;
+    this.houseDisplaying.numOfBathroom = this.inputHouse.numOfBathroom;
+    this.houseDisplaying.contactPhone = this.inputHouse.contactPhone;
+    this.houseDisplaying.imageUrl = this.inputHouse.imageUrl;
+    this.houseDisplaying.rating = this.inputHouse.rating;
+    this.houseDisplaying.likes = this.inputHouse.likes;
     this.isDisabled = true;
   }
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { House } from '../house.model';
 import { HouseService } from '../../services/house.service';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
 
 
 
@@ -105,7 +105,22 @@ export class HouseListComponent implements OnInit, OnChanges {
 
 
   onClickEdit(house: House): void {
-
+    let navExtras : NavigationExtras = {
+      queryParams : {
+        'id': house.id,
+        'address' : house.address,
+        'description' : house.description,
+        'listingPrice' : house.listingPrice,
+        'availableDate': house.availableDate,
+        'numOfBedroom' : house.numOfBedroom,
+        'numOfBathroom' : house.numOfBathroom,
+        'contactPhone' : house.contactPhone,
+        'imageUrl' : house.imageUrl,
+        'rating' : house.rating,
+        'likes' : house.likes
+      }
+    }
+    this.router.navigate(['/edit'], navExtras)
   }
 
 

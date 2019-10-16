@@ -21,12 +21,12 @@
                         <th>Image</th>
                         <!-- <th>Property Address</th> -->
                         <th>Listing Price</th>
-                        <th>Available Date</th>
+                        <!-- <th>Available Date</th> -->
                         <th>Rating</th>
                         <!-- <th>Num of Bedrooms</th> -->
                         <th>Num of Bathrooms</th>
                         <th>Contact Phone</th>
-                        <!-- <th>Description</th> -->
+                        <th>Description</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -40,14 +40,14 @@
                             <td><img [src]="house.imageUrl" [alt]="house.id"></td>
                             <!-- <td>{{house.address | titlecase}}</td> -->
                             <td>{{house.listingPrice | currency}}</td>
-                            <td>{{house.availableDate | MoveDayToEndPipe}}</td>
+                            <!-- <td>{{house.availableDate | MoveDayToEndPipe}}</td> -->
                             <td> {{house.rating}}<lm-star [rating]="house.rating" [id]="house.id" (childEvent)='onChildEvent($event)'></lm-star></td>
                             <!-- <td>{{house.numOfBedroom}}</td> -->
                             <td> {{house.numOfBathroom}}<lm-toilet [count]=house.numOfBathroom></lm-toilet></td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
-                            <!-- <td>{{house.description}}</td> -->
+                            <td>{{house.description}}</td>
                             <td><button class="btn btn-outline" [routerLink]="['/houses', house.id]">View</button></td>
-                            <td><button class="btn btn-outline" [routerLink]="['/edit', house.id]" >Edit</button></td>
+                            <td><button class="btn btn-outline" (click)=onClickEdit(house)>Edit</button></td>
                             <td>
                                 <button *ngIf="showDelete" class="btn btn-outline" (click)="onClickDelete()">Delete</button>
                                 <label *ngIf="showConfirmation" for="confirmDelete">Confirm Delete!</label>

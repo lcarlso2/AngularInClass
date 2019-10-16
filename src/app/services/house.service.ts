@@ -35,7 +35,7 @@ export class HouseService {
 
   updateHouse(currentHouse: House) {
     let tempUrl = this.url + `/${currentHouse.id}`;
-    this.http.patch(tempUrl, currentHouse).subscribe();
+    return this.http.patch(tempUrl, currentHouse);
   }
 
   createHouse(house: House) {

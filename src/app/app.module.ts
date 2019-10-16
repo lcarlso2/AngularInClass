@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HouseCreateComponent } from './houses/house-create-component/house-create.component';
 import { HouseEditComponent } from './houses/house-edit.component/house-edit.component'
 import { HouseFormComponent } from './houses/house-form.component/house-form.component'
+import { House } from './houses/house.model';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { HouseFormComponent } from './houses/house-form.component/house-form.com
       {path: 'home', component: HomeComponent},
       {path: 'houses/:id', component: HouseDetailComponent},
       {path: 'create', component: HouseCreateComponent},
-      {path: 'edit/:id', component: HouseEditComponent },
+      {path: 'edit', component: HouseEditComponent},
       {path : '', redirectTo:'home', pathMatch:'full'},
       {path: '**', redirectTo:'home', pathMatch:'full'},
     ])

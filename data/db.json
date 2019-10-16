@@ -3,27 +3,27 @@
     {
       "id": 1,
       "address": "1600 Maple st., Carrollton, GA 30118",
-      "description": "must see this beautiful house",
-      "listingPrice": 2870780,
-      "availableDate": "2019/10/9",
-      "numOfBedroom": 4,
-      "numOfBathroom": 2.5,
+      "description": "yepppfghfg",
+      "listingPrice": 1,
+      "availableDate": "2019-10-09T04:00:00.000Z",
+      "numOfBedroom": "4",
+      "numOfBathroom": "2.5",
       "contactPhone": "3454412344",
       "imageUrl": "assets/images/house1.jpeg",
-      "rating": 2.5,
-      "likes": 12
+      "rating": "2",
+      "likes": 3
     },
     {
       "id": 2,
       "address": "888 Burge st., Carrollton, GA 30118",
       "description": "must not see this terrible house",
-      "listingPrice": 2760000,
-      "availableDate": "2019/10/9",
-      "numOfBedroom": 3,
-      "numOfBathroom": 1.5,
+      "listingPrice": "2760000",
+      "availableDate": "2019-10-09T04:00:00.000Z",
+      "numOfBedroom": "3",
+      "numOfBathroom": "1.5",
       "contactPhone": "3454412344",
       "imageUrl": "assets/images/house2.jpeg",
-      "rating": 1.5,
+      "rating": "1.5",
       "likes": 2
     },
     {
@@ -90,6 +90,19 @@
       "imageUrl": "assets/images/house7.jpeg",
       "rating": 1.5,
       "likes": 0
+    },
+    {
+      "id": 8,
+      "address": "7801 Hwy 166",
+      "description": "works",
+      "listingPrice": "454545",
+      "availableDate": "2019-10-16T21:08:25.539Z",
+      "numOfBedroom": "3",
+      "numOfBathroom": "3",
+      "contactPhone": "7705453948",
+      "imageUrl": "assets/images/house7.jpeg",
+      "rating": "2",
+      "likes": 2
     }
   ]
 }
