@@ -98,7 +98,7 @@ export class HouseListComponent implements OnInit, OnChanges {
     this.showDelete = true;
   }
 
-  onClickNoDelete(house: House): void {
+  onClickNoDelete(): void {
     this.showDelete = true;
     this.showConfirmation = false;
   }

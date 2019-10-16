@@ -50,6 +50,7 @@ import { HouseFormComponent } from './houses/house-form.component/house-form.com
       {path: 'home', component: HomeComponent},
       {path: 'houses/:id', component: HouseDetailComponent},
       {path: 'create', component: HouseCreateComponent},
+      {path: 'edit/:id', component: HouseEditComponent },
       {path : '', redirectTo:'home', pathMatch:'full'},
       {path: '**', redirectTo:'home', pathMatch:'full'},
     ])

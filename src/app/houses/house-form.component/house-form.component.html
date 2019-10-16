@@ -7,41 +7,41 @@
                 <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input placeholder="Address" [(ngModel)]="address" name="haddress" type="text" class="form-control" id="address" required>
+                        <input placeholder="Address" [(ngModel)]="currentHouse.address" name="haddress" type="text" class="form-control" id="address" required>
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <input placeholder="Description" [(ngModel)]="description" name="hdescription" type="text" class="form-control"
+                        <input placeholder="Description" [(ngModel)]="currentHouse.description" name="hdescription" type="text" class="form-control"
                             id="description" required>
                     </div>
                     <div class="form-group">
                         <label for="listingPrice">Listing Price</label>
-                        <input placeholder="Listing Price" [(ngModel)]="listingPrice" name="hlistingPrice" type="number" class="form-control"
+                        <input placeholder="Listing Price" [(ngModel)]="currentHouse.listingPrice" name="hlistingPrice" type="number" class="form-control"
                             id="listingPrice" required>
                     </div>
                     <div class="form-group">
                         <label for="availableDate">Available Date</label>
-                        <input [(ngModel)]="availableDate" name="havailableDate" type="date" class="form-control"
+                        <input [(ngModel)]="currentHouse.availableDate" name="havailableDate" type="date" class="form-control"
                             id="availableDate" required>
                     </div>
                     <div class="form-group">
                         <label for="numOfBedroom">Number of Bedrooms</label>
-                        <input placeholder="Number of Bedrooms" [(ngModel)]="numOfBedroom" name="hnumOfBedroom" type="number" class="form-control"
+                        <input placeholder="Number of Bedrooms" [(ngModel)]="currentHouse.numOfBedroom" name="hnumOfBedroom" type="number" class="form-control"
                             id="numOfBedroom" required>
                     </div>
                     <div class="form-group">
                         <label for="numOfBathroom">Number of Bathrooms</label>
-                        <input placeholder="Number of Bathrooms" [(ngModel)]="numOfBathroom" name="hnumOfBathroom" type="number" class="form-control"
+                        <input placeholder="Number of Bathrooms" [(ngModel)]="currentHouse.numOfBathroom" name="hnumOfBathroom" type="number" class="form-control"
                             id="numOfBathroom" required>
                     </div>
                     <div class="form-group">
                         <label for="contactPhone">Contact Phone</label>
-                        <input #phone placeholder="phone number" [(ngModel)]="contactPhone" name="hcontactPhone" type="text"
+                        <input #phone placeholder="phone number" [(ngModel)]="currentHouse.contactPhone" name="hcontactPhone" type="text"
                             class="form-control" id="contactPhone" required>
                     </div>
                     <div class="form-group">
                         <label for="fileName">File Name for Image</label>
-                        <input placeholder="File Name" [(ngModel)]="imageUrl" name="himageUrl" type="text"
+                        <input placeholder="File Name" [(ngModel)]="currentHouse.imageUrl" name="himageUrl" type="text"
                             class="form-control" id="fileName">
                     </div>
     
