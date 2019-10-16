@@ -28,6 +28,8 @@
                         <th>Contact Phone</th>
                         <!-- <th>Description</th> -->
                         <th></th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,9 +46,15 @@
                             <td> {{house.numOfBathroom}}<lm-toilet [count]=house.numOfBathroom></lm-toilet></td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
                             <!-- <td>{{house.description}}</td> -->
-                            <td><button class="btn btn-secondary" [routerLink]="['/houses', house.id]">View</button></td>
-                            <td><button class="btn btn-secondary" [routerLink]="['/houses', house.id]" (click)="onClickEdit(house)">Edit</button></td>
-                            <td><button class="btn btn-secondary" (click)="onClickDelete(house)">Delete</button></td>
+                            <td><button class="btn btn-outline" [routerLink]="['/houses', house.id]">View</button></td>
+                            <td><button class="btn btn-outline" [routerLink]="['/houses', house.id]" (click)="onClickEdit(house)">Edit</button></td>
+                            <td>
+                                <button *ngIf="showDelete" class="btn btn-outline" (click)="onClickDelete()">Delete</button>
+                                <label *ngIf="showConfirmation" for="confirmDelete">Confirm Delete!</label>
+                                <button *ngIf="showConfirmation" id="confirmDelete" class="btn btn-danger" (click)="onClickYesDelete(house)">Yes</button>
+                                <button *ngIf="showConfirmation" class="btn btn-primary" (click)="onClickNoDelete(house)">No</button>
+                            </td>
+                            
                             
                         </tr>
                         

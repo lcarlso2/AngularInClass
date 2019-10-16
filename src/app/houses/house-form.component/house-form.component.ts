@@ -4,11 +4,11 @@ import { House } from '../house.model';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-house-create',
+  selector: 'lm-house-form',
   templateUrl: './house-create.component.html',
   styleUrls: ['./house-create.component.css']
 })
-export class HouseCreateComponent implements DoCheck {
+export class HouseFormComponent implements DoCheck {
 
 
   ngDoCheck() {
@@ -33,10 +33,8 @@ export class HouseCreateComponent implements DoCheck {
   isDisabled: boolean;
 
   onSubmit() {
-
     let house = new House(null, this.address, this.description, this.listingPrice, new Date(this.availableDate), this.numOfBedroom, this.numOfBathroom, this.contactPhone, this.imageUrl, 0, 0);
     this.houseService.createHouse(house).subscribe( house => this.router.navigate(["/houses"]) );
-    
   }
 
 

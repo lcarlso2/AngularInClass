@@ -19,7 +19,9 @@ import { ToiletComponent } from './shared/toilet/toilet.component';
 import { HeartComponent } from './shared/heart/heart.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HouseCreateComponent } from './houses/house-create-component/house-create.component'
+import { HouseCreateComponent } from './houses/house-create-component/house-create.component';
+import { HouseEditComponent } from './houses/house-edit.component/house-edit.component'
+import { HouseFormComponent } from './houses/house-form.component/house-form.component'
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { HouseCreateComponent } from './houses/house-create-component/house-crea
     MenuComponent,
     HouseDetailComponent,
     HeartComponent,
-    HouseCreateComponent
+    HouseCreateComponent,
+    HouseFormComponent,
+    HouseEditComponent
   ],
   imports: [
     BrowserModule,

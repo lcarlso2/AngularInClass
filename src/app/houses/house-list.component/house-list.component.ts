@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HouseListComponent implements OnInit, OnChanges {
 
-  
+
 
   errorMessage: string;
 
@@ -23,6 +23,11 @@ export class HouseListComponent implements OnInit, OnChanges {
 
 
   showID: boolean = true;
+
+  showDelete: boolean = true;
+
+  showConfirmation: boolean = !this.showDelete;
+
 
   private _searchTerm: string = '';
 
@@ -74,19 +79,30 @@ export class HouseListComponent implements OnInit, OnChanges {
       : this.houses;
   }
 
-  onClickDelete(house: House): void {
-    if (confirm("Confirm Delete")) {
-      this.houseService.deleteHouse(house).subscribe(
-        () => {
-          this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-          this.router.onSameUrlNavigation = 'reload';
-          this.router.navigate(['/houses']);
-
-        },
-        error => this.errorMessage = error
-      );
-    }
+  onClickDelete(): void {
+    this.showDelete = false;
+    this.showConfirmation = true;
   }
+
+  onClickYesDelete(house: House): void {
+    this.houseService.deleteHouse(house).subscribe(
+      () => {
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate(['/houses']);
+
+      },
+      error => this.errorMessage = error
+    );
+    this.showConfirmation = false;
+    this.showDelete = true;
+  }
+
+  onClickNoDelete(house: House): void {
+    this.showDelete = true;
+    this.showConfirmation = false;
+  }
+
 
   onClickEdit(house: House): void {
 
