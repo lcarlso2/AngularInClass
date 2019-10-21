@@ -26,8 +26,7 @@ export class HouseListComponent implements OnInit, OnChanges {
 
   showDelete: boolean = true;
 
-  showConfirmation: boolean = !this.showDelete;
-
+  houseToDelete: House;
 
   private _searchTerm: string = '';
 
@@ -35,13 +34,9 @@ export class HouseListComponent implements OnInit, OnChanges {
 
   searchResult: House[] = this.houses;
 
+
+
   ngOnChanges(): void {
-    // this.houseService.getHouses().subscribe(houses => {
-    //   this.houses = houses;
-    //   this.searchResult = this.houses;
-    // },
-    //   error => this.errorMessage = error
-    // );
   }
 
   ngOnInit(): void {
@@ -52,9 +47,6 @@ export class HouseListComponent implements OnInit, OnChanges {
       error => this.errorMessage = error
     );
   }
-
-
-  houseToDelete: House;
 
 
   constructor(private houseService: HouseService, private router: Router) {
@@ -84,7 +76,6 @@ export class HouseListComponent implements OnInit, OnChanges {
   onClickDelete(house: House): void {
     this.houseToDelete = house;
     this.showDelete = false;
-    this.showConfirmation = true;
   }
 
   onClickYesDelete(house: House): void {
@@ -97,13 +88,13 @@ export class HouseListComponent implements OnInit, OnChanges {
       },
       error => this.errorMessage = error
     );
-    this.showConfirmation = false;
     this.showDelete = true;
+    this.houseToDelete = null;
   }
 
   onClickNoDelete(): void {
     this.showDelete = true;
-    this.showConfirmation = false;
+    this.houseToDelete = null;
   }
 
 

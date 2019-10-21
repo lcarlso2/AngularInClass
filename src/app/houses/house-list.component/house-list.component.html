@@ -53,15 +53,15 @@
                             <td><button class="btn btn-outline" [routerLink]="['/houses', house.id]">View</button></td>
                             <td><button class="btn btn-outline" (click)=onClickEdit(house)>Edit</button></td>
                             <td>
-                                <div *ngIf="showDelete">
+                               
                                     <button *ngIf="showDelete" class="btn btn-outline"
                                         (click)="onClickDelete(house)">Delete</button>
-                                </div>
+                            
                                 <div *ngIf="house.id === houseToDelete?.id">
-                                    <label *ngIf="showConfirmation" for="confirmDelete">Confirm Delete!</label>
-                                    <button *ngIf="showConfirmation" id="confirmDelete" class="btn btn-danger"
+                                    <label for="confirmDelete">Confirm Delete!</label>
+                                    <button id="confirmDelete" class="btn btn-danger"
                                         (click)="onClickYesDelete(house)">Yes</button>
-                                    <button *ngIf="showConfirmation" class="btn btn-primary"
+                                    <button class="btn btn-primary"
                                         (click)="onClickNoDelete()">No</button>
                                 </div>
                             </td>
