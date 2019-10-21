@@ -54,6 +54,8 @@ export class HouseListComponent implements OnInit, OnChanges {
   }
 
 
+  houseToDelete: House;
+
 
   constructor(private houseService: HouseService, private router: Router) {
     this.childInfo = '';
@@ -79,7 +81,8 @@ export class HouseListComponent implements OnInit, OnChanges {
       : this.houses;
   }
 
-  onClickDelete(): void {
+  onClickDelete(house: House): void {
+    this.houseToDelete = house;
     this.showDelete = false;
     this.showConfirmation = true;
   }

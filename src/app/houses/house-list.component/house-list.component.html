@@ -3,12 +3,13 @@
 
         <div class="card-header font-weight-bold">All Listings <br> {{childInfo}}</div>
         <div class="card-body">
-            
+
             <div class="row">
-                <button class="col-2 btn btn-primary ml-3 mb-4 mr-3" (click)="onShowIDClicked()">{{showID?'Hide':'Show'}} ID</button>
-                
+                <button class="col-2 btn btn-primary ml-3 mb-4 mr-3"
+                    (click)="onShowIDClicked()">{{showID?'Hide':'Show'}} ID</button>
+
                 <input type="text" [(ngModel)]="searchTerm" class="form-control col-4 ml-auto mb-4 mr-2">
-                
+
                 <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" (click)="onSearchClicked()"> Search</button>
 
                 <button class="col-2 btn btn-primary ml-auto mb-4 mr-3" [routerLink]="['/create']"> Add</button>
@@ -41,23 +42,33 @@
                             <!-- <td>{{house.address | titlecase}}</td> -->
                             <td>{{house.listingPrice | currency}}</td>
                             <!-- <td>{{house.availableDate | MoveDayToEndPipe}}</td> -->
-                            <td> {{house.rating}}<lm-star [rating]="house.rating" [id]="house.id" (childEvent)='onChildEvent($event)'></lm-star></td>
+                            <td> {{house.rating}}<lm-star [rating]="house.rating" [id]="house.id"
+                                    (childEvent)='onChildEvent($event)'></lm-star>
+                            </td>
                             <!-- <td>{{house.numOfBedroom}}</td> -->
-                            <td> {{house.numOfBathroom}}<lm-toilet [count]=house.numOfBathroom></lm-toilet></td>
+                            <td> {{house.numOfBathroom}}<lm-toilet [count]=house.numOfBathroom></lm-toilet>
+                            </td>
                             <td><a href="tel:{{house.contactPhone}}">{{house.contactPhone | phone: 'US'}}</a></td>
                             <td>{{house.description}}</td>
                             <td><button class="btn btn-outline" [routerLink]="['/houses', house.id]">View</button></td>
                             <td><button class="btn btn-outline" (click)=onClickEdit(house)>Edit</button></td>
                             <td>
-                                <button *ngIf="showDelete" class="btn btn-outline" (click)="onClickDelete()">Delete</button>
-                                <label *ngIf="showConfirmation" for="confirmDelete">Confirm Delete!</label>
-                                <button *ngIf="showConfirmation" id="confirmDelete" class="btn btn-danger" (click)="onClickYesDelete(house)">Yes</button>
-                                <button *ngIf="showConfirmation" class="btn btn-primary" (click)="onClickNoDelete()">No</button>
+                                <div *ngIf="showDelete">
+                                    <button *ngIf="showDelete" class="btn btn-outline"
+                                        (click)="onClickDelete(house)">Delete</button>
+                                </div>
+                                <div *ngIf="house.id === houseToDelete?.id">
+                                    <label *ngIf="showConfirmation" for="confirmDelete">Confirm Delete!</label>
+                                    <button *ngIf="showConfirmation" id="confirmDelete" class="btn btn-danger"
+                                        (click)="onClickYesDelete(house)">Yes</button>
+                                    <button *ngIf="showConfirmation" class="btn btn-primary"
+                                        (click)="onClickNoDelete()">No</button>
+                                </div>
                             </td>
-                            
-                            
+
+
                         </tr>
-                        
+
                     </ng-container>
                 </tbody>
             </table>

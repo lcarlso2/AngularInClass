@@ -1,19 +1,6 @@
 {
   "houses": [
     {
-      "id": 1,
-      "address": "1600 Maple st., Carrollton, GA 30118",
-      "description": "yepppfghfg",
-      "listingPrice": 1,
-      "availableDate": "2019-10-09T04:00:00.000Z",
-      "numOfBedroom": "4",
-      "numOfBathroom": "2.5",
-      "contactPhone": "3454412344",
-      "imageUrl": "assets/images/house1.jpeg",
-      "rating": "2",
-      "likes": 3
-    },
-    {
       "id": 2,
       "address": "888 Burge st., Carrollton, GA 30118",
       "description": "must not see this terrible house",
