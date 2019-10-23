@@ -1,54 +1,76 @@
 <div class="container">
-        <div class="card">
-            <div class="card-header">
-                <h3>{{title}}</h3>
-            </div>
-            <div class="card-body">
-                <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
-                    <div class="form-group">
-                        <label for="address">Address</label>
-                        <input placeholder="Address" [(ngModel)]="houseDisplaying.address" name="haddress" type="text" class="form-control" id="address" required>
+    <div class="card">
+        <div class="card-header">
+            <h3>{{title}}</h3>
+        </div>
+        <div class="card-body">
+            <form #createForm="ngForm" (ngSubmit)="onSubmit(createForm)">
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input placeholder="Address" [(ngModel)]="houseDisplaying.address" name="haddress" type="text"
+                        class="form-control" id="address" required minlength="4" #addressControl="ngModel">
+                    <div *ngIf="addressControl.invalid && addressControl.touched">
+                        <small id="nameHelpBlock" class="form-text text-muted" *ngIf="addressControl.errors.required">
+                            Address is required.
+                        </small>
+                        <small id="nameHelpBlock" class="form-text text-muted"
+                            *ngIf="addressControl.errors. minlength ">
+                            Address
+                            must be at least 4 characters long.
+                        </small>
                     </div>
-                    <div class="form-group">
-                        <label for="description">Description</label>
-                        <input placeholder="Description" [(ngModel)]="houseDisplaying.description" name="hdescription" type="text" class="form-control"
-                            id="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <input placeholder="Description" [(ngModel)]="houseDisplaying.description" name="hdescription"
+                        type="text" class="form-control" id="description" required #desciptionControl="ngModel" required
+                        minlength="4">
+                    <div *ngIf="desciptionControl.invalid && desciptionControl.touched">
+                        <small id="nameHelpBlock" class="form-text text-muted"
+                            *ngIf="desciptionControl.errors.required">
+                            Address is required.
+                        </small>
+                        <small id="nameHelpBlock" class="form-text text-muted"
+                            *ngIf="desciptionControl.errors. minlength ">
+                            Address
+                            must be at least 4 characters long.
+                        </small>
                     </div>
-                    <div class="form-group">
-                        <label for="listingPrice">Listing Price</label>
-                        <input placeholder="Listing Price" [(ngModel)]="houseDisplaying.listingPrice" name="hlistingPrice" type="number" class="form-control"
-                            id="listingPrice" required>
-                    </div>
-                    <!-- <div class="form-group">
+                </div>
+                <div class="form-group">
+                    <label for="listingPrice">Listing Price</label>
+                    <input placeholder="Listing Price" [(ngModel)]="houseDisplaying.listingPrice" name="hlistingPrice"
+                        type="number" class="form-control" id="listingPrice" required>
+                </div>
+                <!-- <div class="form-group">
                         <label for="availableDate">Available Date</label>
                         <input [(ngModel)]="houseDisplaying.availableDate | date:'yyyy-MM-dd'" [(ngModelChange)]="houseDisplaying.availableDate=parseDate" name="havailableDate" type="date" class="form-control"
                             id="availableDate" required>
                     </div> -->
-                    <div class="form-group">
-                        <label for="numOfBedroom">Number of Bedrooms</label>
-                        <input placeholder="Number of Bedrooms" [(ngModel)]="houseDisplaying.numOfBedroom" name="hnumOfBedroom" type="number" class="form-control"
-                            id="numOfBedroom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="numOfBathroom">Number of Bathrooms</label>
-                        <input placeholder="Number of Bathrooms" [(ngModel)]="houseDisplaying.numOfBathroom" name="hnumOfBathroom" type="number" class="form-control"
-                            id="numOfBathroom" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contactPhone">Contact Phone</label>
-                        <input #phone placeholder="phone number" [(ngModel)]="houseDisplaying.contactPhone" name="hcontactPhone" type="text"
-                            class="form-control" id="contactPhone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="fileName">File Name for Image</label>
-                        <input placeholder="File Name" [(ngModel)]="houseDisplaying.imageUrl" name="himageUrl" type="text"
-                            class="form-control" id="fileName">
-                    </div>
-    
-                    <button type="submit" [(disabled)]="isDisabled"
-                        class="btn btn-success">Submit</button>
-                </form>
-            </div>
+                <div class="form-group">
+                    <label for="numOfBedroom">Number of Bedrooms</label>
+                    <input placeholder="Number of Bedrooms" [(ngModel)]="houseDisplaying.numOfBedroom"
+                        name="hnumOfBedroom" type="number" class="form-control" id="numOfBedroom" required>
+                </div>
+                <div class="form-group">
+                    <label for="numOfBathroom">Number of Bathrooms</label>
+                    <input placeholder="Number of Bathrooms" [(ngModel)]="houseDisplaying.numOfBathroom"
+                        name="hnumOfBathroom" type="number" class="form-control" id="numOfBathroom" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Contact Phone</label>
+                    <input #phone placeholder="phone number" [(ngModel)]="houseDisplaying.contactPhone"
+                        name="hcontactPhone" type="text" class="form-control" id="contactPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="fileName">File Name for Image</label>
+                    <input placeholder="File Name" [(ngModel)]="houseDisplaying.imageUrl" name="himageUrl" type="text"
+                        class="form-control" id="fileName" required>
+                </div>
+
+                <button type="submit" [(disabled)]="isDisabled" class="btn btn-success">Submit</button>
+            </form>
         </div>
-    
     </div>
+
+</div>
