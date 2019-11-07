@@ -10,8 +10,10 @@ import {
 } from "@angular/forms";
 import { HouseService } from "src/app/services/house.service";
 import { Router } from "@angular/router";
-import { map, delay } from "rxjs/operators";
+import { map, delay, catchError } from "rxjs/operators";
 import { Observable, of } from 'rxjs';
+
+
 
 @Component({
   selector: "app-house-create",
@@ -89,19 +91,16 @@ export class HouseCreateComponent implements OnInit {
   }
 
   idValidator(): AsyncValidatorFn {
-    return (control: AbstractControl): Observable<ValidationErrors | null> => {
-      return this.checkIfIdExists(control.value).pipe(
-        map(res => {
-          // if res is true, id exists, return true
-          console.log("Res is : " + res);
-          return res ? { idTaken: true } : null;
-          // return null if there is no error
+    return (control: AbstractControl): Observable< {[key: string] : any } | null> => {
+      return this.service.checkIfIdExists(control.value).pipe(
+        map(idExists => {
+          if (idExists){
+            return {'idTaken' : true};
+          }
         })
       );
     };
   }
 
-  checkIfIdExists(id: number) {
-      return of(this.houses.filter(currentHouse => currentHouse.id === id)).pipe(delay(1000));
-  }
+
 }

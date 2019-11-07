@@ -5,8 +5,8 @@ import {
   HttpErrorResponse,
   HttpHeaders
 } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { Observable, throwError, of, timer } from 'rxjs';
+import { catchError, tap, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -63,15 +63,29 @@ export class HouseService {
     );
   }
 
-  checkIfIdExists(id: number): Observable<boolean> {
-    let houses = [];
-    let idExists: Observable<boolean>;
-    this.getHouses().subscribe(h => {
-      houses = h;
-      
-    });
+  searchID(id: number) {
+    return timer(1000).pipe(switchMap(() => {
+      return this.http.get<any>(this.url + `/${id}`)
+    })
+    );
+  }
 
-    return of(houses.filter(currentHouse => currentHouse.id === id) !== null);
+  checkIfIdExists(id: number): Observable<boolean> {
+    try {
+      let house: House;
+      let test = this.http.get<House>(this.url + `/${id}`).pipe(tap(data => console.log("It returned this" + JSON.stringify(data))), catchError(this.handleError));
+      test.subscribe(h => {
+        house = h;
+        console.log(house + "INSIDE THIS")
+      }, error => console.log(error));
+      console.log("WHAT THE FUCK");
+      console.log(typeof (test) + "THIS IS THE TEST");
+      console.log(house)
+      return of(test !== null);
+    } catch (WebException) {
+      return of(false);
+    }
+
   }
 
   handleError(error: HttpErrorResponse) {
