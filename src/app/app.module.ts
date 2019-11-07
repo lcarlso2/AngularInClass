@@ -53,8 +53,8 @@ import { House } from './houses/house.model';
       {path: 'houses/:id', component: HouseDetailComponent},
       {path: 'create', component: HouseCreateComponent},
       {path: 'edit', component: HouseEditComponent},
-      {path : '', redirectTo:'home', pathMatch:'full'},
-      {path: '**', redirectTo:'home', pathMatch:'full'},
+      {path : '', redirectTo: 'home', pathMatch: 'full'},
+      {path: '**', redirectTo: 'home', pathMatch: 'full'},
     ])
   ],
   providers: [],

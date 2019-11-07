@@ -64,6 +64,19 @@
       "imageUrl": "assets/images/house7.jpeg",
       "rating": "2",
       "likes": 2
+    },
+    {
+      "id": 9,
+      "address": null,
+      "description": null,
+      "listingPrice": null,
+      "availableDate": null,
+      "numOfBedroom": null,
+      "numOfBathroom": null,
+      "contactPhone": null,
+      "imageUrl": null,
+      "rating": 0,
+      "likes": 0
     }
   ]
 }
