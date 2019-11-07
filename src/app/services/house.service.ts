@@ -64,7 +64,7 @@ export class HouseService {
   }
 
   checkIfIdExists(id: number) {
-     return timer(1000).pipe(switchMap(() => {
+    return timer(1000).pipe(switchMap(() => {
       return this.http.get<any>(this.url + `/${id}`)
     })
     );

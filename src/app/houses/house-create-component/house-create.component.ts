@@ -22,7 +22,6 @@ import { Observable, of } from 'rxjs';
 })
 export class HouseCreateComponent implements OnInit {
   house: House;
-  houses: House[];
   houseForm: FormGroup;
   submitted = false;
   diagnostic: string;
@@ -42,26 +41,24 @@ export class HouseCreateComponent implements OnInit {
       null,
       null,
       null,
-      0,
-      0
+      2,
+      3
     );
   }
 
   ngOnInit() {
     this.houseForm = this.formBuilder.group({
-      id: ["", [Validators.required], [this.idValidator()]],
+      
       address: ["", Validators.required],
       description: ["", [Validators.required, Validators.minLength(10)]],
-      price: ["", Validators.required],
+      listingPrice: ["", Validators.required],
       availableDate: ["", Validators.required],
-      bedrooms: ["", Validators.required],
-      bathrooms: ["", Validators.required],
-      contactNumber: ["", Validators.required],
-      image: ["", Validators.required]
+      numOfBedroom: ["", Validators.required],
+      numOfBathroom: ["", Validators.required],
+      contactPhone: ["", Validators.required],
+      imageUrl: ["", Validators.required],
+      id: ["", [Validators.required], [this.idValidator()]]
     });
-    this.service.getHouses().subscribe(
-        h => { this.houses = h; }
-    );
   }
 
   // convenience getter for easy access to form fields
@@ -72,13 +69,14 @@ export class HouseCreateComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
+    console.log(this.houseForm.invalid + " -------------- IS THE FORM INVALID???")
     if (this.houseForm.invalid) {
       console.log("inside invalid form");
       return;
     }
-    this.diagnostic = JSON.stringify(this.house);
+    this.diagnostic = JSON.stringify(this.houseForm.value);
     this.service
-      .createHouse(this.house)
+      .createHouse(this.houseForm.value)
       .subscribe(house => this.router.navigate(["houses"]));
 
     // display form values on success

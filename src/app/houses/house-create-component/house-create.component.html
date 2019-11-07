@@ -9,9 +9,9 @@
           type="text"
           formControlName="id"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.id.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.id.errors }"
         />
-        <div *ngIf="submitted && !!fields.id.errors" class="invalid-feedback">
+        <div *ngIf="houseForm.touched || !!fields.id.errors" class="invalid-feedback">
           <div *ngIf="!!fields.id.errors?.required">ID is required</div>
         </div>
         <div *ngIf="!!fields.id.errors?.idTaken" class="invalid-feedback">
@@ -26,7 +26,7 @@
           type="text"
           formControlName="address"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.address.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.address.errors }"
         />
       </div>
 
@@ -37,8 +37,11 @@
           type="text"
           formControlName="description"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.description.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && !!fields.description.errors }"
         />
+        <div *ngIf="houseForm.touched && !!fields.description.errors" class="invalid-feedback">
+          <div *ngIf="!!fields.description.errors">Must be at least 10 characters.</div>
+        </div>
       </div>
 
       <!-- Listing price field -->
@@ -46,9 +49,9 @@
         <label for="listingPrice">Listing Price</label>
         <input
           type="text"
-          formControlName="price"
+          formControlName="listingPrice"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.price.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.listingPrice.errors }"
         />
       </div>
 
@@ -59,7 +62,7 @@
           type="text"
           formControlName="availableDate"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.availableDate.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.availableDate.errors }"
         />
       </div>
 
@@ -68,9 +71,9 @@
         <label for="numOfBedroom">Number of Bedrooms</label>
         <input
           type="number"
-          formControlName="bedrooms"
+          formControlName="numOfBedroom"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.bedrooms.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.numOfBedroom.errors }"
         />
       </div>
 
@@ -79,9 +82,9 @@
         <label for="numOfBathroom">Number of Bathrooms</label>
         <input
           type="number"
-          formControlName="bathrooms"
+          formControlName="numOfBathroom"
           class="form-control"
-          [ngClass]="{ 'is-invalid': submitted && fields.bathrooms.errors }"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.numOfBathroom.errors }"
         />
       </div>
 
@@ -91,8 +94,8 @@
         <input
           type="text"
           class="form-control"
-          formControlName="contactNumber"
-          [ngClass]="{ 'is-invalid': submitted && fields.contactNumber.errors }"
+          formControlName="contactPhone"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.contactPhone.errors }"
         />
       </div>
 
@@ -102,8 +105,8 @@
         <input
           type="text"
           class="form-control"
-          formControlName="image"
-          [ngClass]="{ 'is-invalid': submitted && fields.image.errors }"
+          formControlName="imageUrl"
+          [ngClass]="{ 'is-invalid': houseForm.touched && fields.imageUrl.errors }"
         />
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
