@@ -63,30 +63,13 @@ export class HouseService {
     );
   }
 
-  searchID(id: number) {
-    return timer(1000).pipe(switchMap(() => {
+  checkIfIdExists(id: number) {
+     return timer(1000).pipe(switchMap(() => {
       return this.http.get<any>(this.url + `/${id}`)
     })
     );
   }
 
-  checkIfIdExists(id: number): Observable<boolean> {
-    try {
-      let house: House;
-      let test = this.http.get<House>(this.url + `/${id}`).pipe(tap(data => console.log("It returned this" + JSON.stringify(data))), catchError(this.handleError));
-      test.subscribe(h => {
-        house = h;
-        console.log(house + "INSIDE THIS")
-      }, error => console.log(error));
-      console.log("WHAT THE FUCK");
-      console.log(typeof (test) + "THIS IS THE TEST");
-      console.log(house)
-      return of(test !== null);
-    } catch (WebException) {
-      return of(false);
-    }
-
-  }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
