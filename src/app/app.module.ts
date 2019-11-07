@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'
 import { RouterModule } from '@angular/router'
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HouseListComponent } from './houses/house-list.component/house-list.component';
 import { HomeComponent } from './home/home.component';
@@ -45,6 +45,7 @@ import { House } from './houses/house.model';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {path: 'houses', component: HouseListComponent},
