@@ -64,17 +64,6 @@
       "imageUrl": "assets/images/house7.jpeg",
       "rating": "2",
       "likes": 2
-    },
-    {
-      "address": "",
-      "description": "",
-      "listingPrice": "",
-      "availableDate": "",
-      "numOfBedroom": "",
-      "numOfBathroom": "",
-      "contactPhone": "",
-      "imageUrl": "",
-      "id": "3"
     }
   ]
 }

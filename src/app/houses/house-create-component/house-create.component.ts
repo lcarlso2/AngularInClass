@@ -48,17 +48,16 @@ export class HouseCreateComponent implements OnInit {
 
   ngOnInit() {
     this.houseForm = this.formBuilder.group({
-      
-      address: ["", Validators.required],
-      description: ["", [Validators.required, Validators.minLength(10)]],
-      listingPrice: ["", Validators.required],
-      availableDate: ["", Validators.required],
-      numOfBedroom: ["", Validators.required],
-      numOfBathroom: ["", Validators.required],
-      contactPhone: ["", Validators.required],
-      imageUrl: ["", Validators.required],
-      id: ["", [Validators.required], [this.idValidator()]]
-    });
+      id: ["", [Validators.required], [this.idValidator()]],
+      address: ['', Validators.required],
+      description: ['', Validators.required],
+      price: ['', Validators.required],
+      availableDate: ['', Validators.required],
+      bedrooms: ['', Validators.required],
+      bathrooms: ['', Validators.required],
+      contactNumber: ['', Validators.required],
+      image: ['', Validators.required],
+  });
   }
 
   // convenience getter for easy access to form fields
@@ -69,7 +68,7 @@ export class HouseCreateComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
-    console.log(this.houseForm.invalid + " -------------- IS THE FORM INVALID???")
+    console.log(this.houseForm + " -------------- IS THE FORM INVALID???")
     if (this.houseForm.invalid) {
       console.log("inside invalid form");
       return;
