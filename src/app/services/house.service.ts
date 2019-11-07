@@ -1,19 +1,18 @@
-import { Injectable } from "@angular/core";
-import { House } from "../houses/house.model";
+import { Injectable } from '@angular/core';
+import { House } from '../houses/house.model';
 import {
   HttpClient,
   HttpErrorResponse,
   HttpHeaders
-} from "@angular/common/http";
-import { Observable, throwError, of } from "rxjs";
-import { catchError, tap } from "rxjs/operators";
-import { AbstractControl } from "@angular/forms";
+} from '@angular/common/http';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class HouseService {
-  private url = "http://localhost:3000/houses";
+  private url = 'http://localhost:3000/houses';
 
   houses: House[];
 
@@ -29,14 +28,14 @@ export class HouseService {
 
   getHouses(): Observable<House[]> {
     return this.http.get<House[]>(this.url).pipe(
-      tap(data => console.log("All" + JSON.stringify(data))),
+      tap(data => console.log('All' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
   getHouseBy(id: number): Observable<House> {
     return this.http.get<House>(this.url + `/${id}`).pipe(
-      tap(data => console.log("All" + JSON.stringify(data))),
+      tap(data => console.log('All' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
@@ -48,7 +47,7 @@ export class HouseService {
 
   createHouse(house: House) {
     return this.http.post(this.url, house).pipe(
-      tap(data => console.log("All" + JSON.stringify(data))),
+      tap(data => console.log('All' + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
@@ -56,30 +55,33 @@ export class HouseService {
   deleteHouse(house: House): Observable<void> {
     let tempUrl = this.url + `/${house.id}`;
     let httpOptions = {
-      headers: new HttpHeaders({ "Content-Type": "application/json" })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     return this.http.delete<void>(tempUrl, httpOptions).pipe(
-      tap(() => console.log("Success")),
+      tap(() => console.log('Success')),
       catchError(this.handleError)
     );
   }
 
   checkIfIdExists(id: number): Observable<boolean> {
     let houses = [];
+    let idExists: Observable<boolean>;
     this.getHouses().subscribe(h => {
       houses = h;
+      
     });
+
     return of(houses.filter(currentHouse => currentHouse.id === id) !== null);
   }
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
-      console.error("An error occurred:", error.error.message);
+      console.error('An error occurred:', error.error.message);
     } else {
       console.error(
         `Backend returned code ${error.status}, ` + `body was: ${error.error}`
       );
     }
-    return throwError("Something bad happened; please try again later.");
+    return throwError('Something bad happened; please try again later.');
   }
 }

@@ -12,10 +12,10 @@
           [ngClass]="{ 'is-invalid': submitted && fields.id.errors }"
         />
         <div *ngIf="submitted && !!fields.id.errors" class="invalid-feedback">
-          <div *ngIf="!!fields.id.errors.required">ID is required</div>
+          <div *ngIf="!!fields.id.errors?.required">ID is required</div>
         </div>
         {{ !!fields.id.errors.idTaken }}
-        <div *ngIf="!!fields.id.errors.idTaken" class="invalid-feedback">
+        <div *ngIf="!!fields.id.errors?.idTaken" class="invalid-feedback">
           ID is taken
         </div>
       </div>

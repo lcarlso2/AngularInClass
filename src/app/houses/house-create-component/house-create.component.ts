@@ -4,11 +4,14 @@ import {
   FormGroup,
   FormBuilder,
   Validators,
-  AbstractControl
+  AbstractControl,
+  AsyncValidatorFn,
+  ValidationErrors
 } from "@angular/forms";
 import { HouseService } from "src/app/services/house.service";
 import { Router } from "@angular/router";
-import { map } from "rxjs/operators";
+import { map, delay } from "rxjs/operators";
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: "app-house-create",
@@ -17,6 +20,7 @@ import { map } from "rxjs/operators";
 })
 export class HouseCreateComponent implements OnInit {
   house: House;
+  houses: House[];
   houseForm: FormGroup;
   submitted = false;
   diagnostic: string;
@@ -43,7 +47,7 @@ export class HouseCreateComponent implements OnInit {
 
   ngOnInit() {
     this.houseForm = this.formBuilder.group({
-      id: ["", [Validators.required, this.validateIdNotTaken.bind(this)]],
+      id: ["", [Validators.required], [this.idValidator()]],
       address: ["", Validators.required],
       description: ["", [Validators.required, Validators.minLength(10)]],
       price: ["", Validators.required],
@@ -53,6 +57,9 @@ export class HouseCreateComponent implements OnInit {
       contactNumber: ["", Validators.required],
       image: ["", Validators.required]
     });
+    this.service.getHouses().subscribe(
+        h => { this.houses = h; }
+    );
   }
 
   // convenience getter for easy access to form fields
@@ -81,11 +88,20 @@ export class HouseCreateComponent implements OnInit {
     this.houseForm.reset();
   }
 
-  validateIdNotTaken(control: number) {
-    return this.service.checkIfIdExists(control).pipe(
-      map(res => {
-        return res ? { idTaken: true } : { idTaken: false };
-      })
-    );
+  idValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      return this.checkIfIdExists(control.value).pipe(
+        map(res => {
+          // if res is true, id exists, return true
+          console.log("Res is : " + res);
+          return res ? { idTaken: true } : null;
+          // return null if there is no error
+        })
+      );
+    };
+  }
+
+  checkIfIdExists(id: number) {
+      return of(this.houses.filter(currentHouse => currentHouse.id === id)).pipe(delay(1000));
   }
 }
