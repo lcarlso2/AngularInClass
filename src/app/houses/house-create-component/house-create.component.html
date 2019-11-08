@@ -186,9 +186,10 @@
           </small>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="houseForm.invalid">Submit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!houseForm.valid">Submit</button>
     </form>
     <div>{{ diagnostic }}</div>
+    {{ houseForm.invalid }}
     <!-- <div>
       Hello
       {{ houseForm.value | json }}
