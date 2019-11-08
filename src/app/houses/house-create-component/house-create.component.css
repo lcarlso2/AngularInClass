@@ -1,0 +1,14 @@
+.ng-valid[required],
+.ng-valid.required {
+  background-color: lightgreen; /* green */
+}
+
+.ng-invalid:not(form).ng-touched {
+  background-color: pink; /* red */
+}
+
+#helpBlock {
+  color: red;
+  border-radius: 3px;
+  padding: 3px;
+}

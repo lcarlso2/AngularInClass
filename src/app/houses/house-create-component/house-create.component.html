@@ -11,11 +11,19 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.id.errors }"
         />
-        <div *ngIf="submitted && fields.id.errors" class="invalid-feedback">
-          <div *ngIf="fields.id.errors.required">ID is required</div>
-        </div>
-        <div *ngIf="fields.id.errors.idTaken" class="invalid-feedback">
-          ID is taken
+        <div *ngIf="fields.id.invalid && fields.id.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.id.errors.required"
+            >ID is required
+          </small>
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.id.errors.idTaken"
+            >ID is taken</small
+          >
         </div>
       </div>
 
@@ -28,7 +36,16 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.address.errors }"
         />
+        <div *ngIf="fields.address.invalid && fields.address.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.address.errors.required"
+            >Address is required
+          </small>
+        </div>
       </div>
+      
 
       <!-- Description field -->
       <div class="form-group">
@@ -39,7 +56,22 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.description.errors }"
         />
+        <div *ngIf="fields.description.invalid && fields.description.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.description.errors.required"
+            >Description is required
+          </small>
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.description.errors.minlength"
+            >Description must be at least 10 characters</small
+          >
+        </div>
       </div>
+
 
       <!-- Listing price field -->
       <div class="form-group">
@@ -50,6 +82,14 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.price.errors }"
         />
+        <div *ngIf="fields.listingPrice.invalid && fields.listingPrice.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.listingPrice.errors.required"
+            >Listing price is required
+          </small>
+        </div>
       </div>
 
       <!-- Available date field -->
@@ -61,6 +101,14 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.availableDate.errors }"
         />
+        <div *ngIf="fields.availableDate.invalid && fields.availableDate.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.availableDate.errors.required"
+            >Available date is required
+          </small>
+        </div>
       </div>
 
       <!-- Number of bedrooms field -->
@@ -72,6 +120,14 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.numOfBedroom.errors }"
         />
+        <div *ngIf="fields.numOfBedroom.invalid && fields.numOfBedroom.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.numOfBedroom.errors.required"
+            >Number of bedrooms is required
+          </small>
+        </div>
       </div>
 
       <!-- Number of Bathrooms field -->
@@ -83,6 +139,14 @@
           class="form-control"
           [ngClass]="{ 'is-invalid': submitted && fields.numOfBathroom.errors }"
         />
+        <div *ngIf="fields.numOfBathroom.invalid && fields.numOfBathroom.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.numOfBathroom.errors.required"
+            >Number of bathrooms is required
+          </small>
+        </div>
       </div>
 
       <!-- Contact phone number field -->
@@ -94,6 +158,14 @@
           formControlName="contactPhone"
           [ngClass]="{ 'is-invalid': submitted && fields.contactPhone.errors }"
         />
+        <div *ngIf="fields.contactPhone.invalid && fields.contactPhone.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.contactPhone.errors.required"
+            >Contact phone is required
+          </small>
+        </div>
       </div>
 
       <!-- Image url field -->
@@ -105,13 +177,21 @@
           formControlName="imageUrl"
           [ngClass]="{ 'is-invalid': submitted && fields.imageUrl.errors }"
         />
+        <div *ngIf="fields.imageUrl.invalid && fields.imageUrl.touched">
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.imageUrl.errors.required"
+            >Image URL is required
+          </small>
+        </div>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" [disabled]="houseForm.invalid">Submit</button>
     </form>
     <div>{{ diagnostic }}</div>
-    <div>
+    <!-- <div>
       Hello
       {{ houseForm.value | json }}
-    </div>
+    </div> -->
   </div>
 </div>

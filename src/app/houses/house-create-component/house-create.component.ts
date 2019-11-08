@@ -48,7 +48,7 @@ export class HouseCreateComponent implements OnInit {
     this.houseForm = this.formBuilder.group({
       id: ["", [Validators.required], [this.idValidator()]],
       address: ["", Validators.required],
-      description: ["", Validators.required],
+      description: ["", [Validators.required, Validators.minLength(10)]],
       listingPrice: ["", Validators.required],
       availableDate: ["", Validators.required],
       numOfBedroom: ["", Validators.required],
