@@ -53,17 +53,43 @@
       "likes": 0
     },
     {
-      "id": 8,
-      "address": "7801 Hwy 166",
-      "description": "works",
-      "listingPrice": "454545",
-      "availableDate": "2019-10-16T21:08:25.539Z",
-      "numOfBedroom": "3",
-      "numOfBathroom": "3",
-      "contactPhone": "7705453948",
-      "imageUrl": "assets/images/house7.jpeg",
-      "rating": "2",
-      "likes": 2
+      "id": 1,
+      "address": "115 East Road",
+      "description": "A new description",
+      "listingPrice": 115000,
+      "availableDate": "2019-10-11",
+      "numOfBedroom": 0,
+      "numOfBathroom": 2,
+      "contactPhone": "5555551212",
+      "imageUrl": "assets/images/house3.jpeg",
+      "rating": 0,
+      "likes": 0
+    },
+    {
+      "id": 2,
+      "address": "115 E.Chandler St.",
+      "description": "a;dsjfa;skldfj",
+      "listingPrice": 150000,
+      "availableDate": "2019-10-11",
+      "numOfBedroom": 4,
+      "numOfBathroom": 3,
+      "contactPhone": "4045551212",
+      "imageUrl": "assets/images/house1.jpeg",
+      "rating": 0,
+      "likes": 0
+    },
+    {
+      "id": 3,
+      "address": "119 Ace Ave",
+      "description": "An ace of a place",
+      "listingPrice": 160000,
+      "availableDate": "2019-01-01",
+      "numOfBedroom": 5,
+      "numOfBathroom": 4,
+      "contactPhone": "4045551212",
+      "imageUrl": "assets/images/house2.jpeg",
+      "rating": 0,
+      "likes": 0
     }
   ]
 }

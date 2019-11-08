@@ -11,9 +11,7 @@ import {
 import { HouseService } from "src/app/services/house.service";
 import { Router } from "@angular/router";
 import { map, delay, catchError } from "rxjs/operators";
-import { Observable, of } from 'rxjs';
-
-
+import { Observable, of } from "rxjs";
 
 @Component({
   selector: "app-house-create",
@@ -41,23 +39,23 @@ export class HouseCreateComponent implements OnInit {
       null,
       null,
       null,
-      2,
-      3
+      0,
+      0
     );
   }
 
   ngOnInit() {
     this.houseForm = this.formBuilder.group({
       id: ["", [Validators.required], [this.idValidator()]],
-      address: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required],
-      availableDate: ['', Validators.required],
-      bedrooms: ['', Validators.required],
-      bathrooms: ['', Validators.required],
-      contactNumber: ['', Validators.required],
-      image: ['', Validators.required],
-  });
+      address: ["", Validators.required],
+      description: ["", Validators.required],
+      listingPrice: ["", Validators.required],
+      availableDate: ["", Validators.required],
+      numOfBedroom: ["", Validators.required],
+      numOfBathroom: ["", Validators.required],
+      contactPhone: ["", Validators.required],
+      imageUrl: ["", Validators.required]
+    });
   }
 
   // convenience getter for easy access to form fields
@@ -68,14 +66,26 @@ export class HouseCreateComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
-    console.log(this.houseForm + " -------------- IS THE FORM INVALID???")
+    console.log(this.houseForm + " -------------- IS THE FORM INVALID???");
     if (this.houseForm.invalid) {
       console.log("inside invalid form");
       return;
     }
+
+    this.house.id = +this.houseForm.value.id;
+    this.house.address = this.houseForm.value.address;
+    this.house.description = this.houseForm.value.description;
+    this.house.listingPrice = +this.houseForm.value.listingPrice;
+    this.house.availableDate = this.houseForm.value.availableDate;
+    this.house.numOfBedroom = +this.houseForm.value.numOfBedroom;
+    this.house.numOfBathroom = +this.houseForm.value.numOfBathroom;
+    this.house.contactPhone = this.houseForm.value.contactPhone;
+    this.house.imageUrl = this.houseForm.value.imageUrl;
+
     this.diagnostic = JSON.stringify(this.houseForm.value);
+
     this.service
-      .createHouse(this.houseForm.value)
+      .createHouse(this.house)
       .subscribe(house => this.router.navigate(["houses"]));
 
     // display form values on success
@@ -88,16 +98,16 @@ export class HouseCreateComponent implements OnInit {
   }
 
   idValidator(): AsyncValidatorFn {
-    return (control: AbstractControl): Observable< {[key: string] : any } | null> => {
+    return (
+      control: AbstractControl
+    ): Observable<{ [key: string]: any } | null> => {
       return this.service.checkIfIdExists(control.value).pipe(
         map(idExists => {
-          if (idExists){
-            return {'idTaken' : true};
+          if (idExists) {
+            return { idTaken: true };
           }
         })
       );
     };
   }
-
-
 }

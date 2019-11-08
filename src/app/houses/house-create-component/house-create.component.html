@@ -1,116 +1,117 @@
 <div class="container">
-    <div class="card-header"></div>
-    <div class="card-body">
-      <form [formGroup]="houseForm" (ngSubmit)="onSubmit()">
-        <!-- House ID field -->
-        <div class="form-group">
-          <label for="id">ID</label>
-          <input
-            type="text"
-            formControlName="id"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.id.errors }"
-          />
-          <div *ngIf="submitted && fields.id.errors" class="invalid-feedback">
-              <div *ngIf="fields.id.errors.required">ID is required</div>
-          </div>
-          <div *ngIf="!!fields.id.errors?.idTaken" class="invalid-feedback">
-              ID is taken
-            </div>
+  <div class="card-header"></div>
+  <div class="card-body">
+    <form [formGroup]="houseForm" (ngSubmit)="onSubmit()">
+      <!-- House ID field -->
+      <div class="form-group">
+        <label for="id">ID</label>
+        <input
+          type="text"
+          formControlName="id"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.id.errors }"
+        />
+        <div *ngIf="submitted && fields.id.errors" class="invalid-feedback">
+          <div *ngIf="fields.id.errors.required">ID is required</div>
         </div>
-  
-        <!-- Address field -->
-        <div class="form-group">
-          <label for="address">Address</label>
-          <input
-            type="text"
-            formControlName="address"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.address.errors }"
-          />
+        <div *ngIf="fields.id.errors.idTaken" class="invalid-feedback">
+          ID is taken
         </div>
-  
-        <!-- Description field -->
-        <div class="form-group">
-          <label for="description">Description</label>
-          <input
-            type="text"
-            formControlName="description"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.description.errors }"
-          />
-        </div>
-  
-        <!-- Listing price field -->
-        <div class="form-group">
-          <label for="listingPrice">Listing Price</label>
-          <input
-            type="text"
-            formControlName="price"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.price.errors }"
-          />
-        </div>
-  
-        <!-- Available date field -->
-        <div class="form-group">
-          <label for="availableDate">Available Date</label>
-          <input
-            type="text"
-            formControlName="availableDate"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.availableDate.errors }"
-          />
-        </div>
-  
-        <!-- Number of bedrooms field -->
-        <div class="form-group">
-          <label for="numOfBedroom">Number of Bedrooms</label>
-          <input
-            type="number"
-            formControlName="bedrooms"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.bedrooms.errors }"
-          />
-        </div>
-  
-        <!-- Number of Bathrooms field -->
-        <div class="form-group">
-          <label for="numOfBathroom">Number of Bathrooms</label>
-          <input
-            type="number"
-            formControlName="bathrooms"
-            class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && fields.bathrooms.errors }"
-          />
-        </div>
-  
-        <!-- Contact phone number field -->
-        <div class="form-group">
-          <label for="contactPhone">Contact Phone</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="contactNumber"
-            [ngClass]="{ 'is-invalid': submitted && fields.contactNumber.errors }"
-          />
-        </div>
-  
-        <!-- Image url field -->
-        <div class="form-group">
-          <label for="imageUrl">Image URL</label>
-          <input
-            type="text"
-            class="form-control"
-            formControlName="image"
-            [ngClass]="{ 'is-invalid': submitted && fields.image.errors }"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <div>{{ diagnostic }}</div>
-      <div>
-        {{ houseForm.value | json }}
       </div>
+
+      <!-- Address field -->
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input
+          type="text"
+          formControlName="address"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.address.errors }"
+        />
+      </div>
+
+      <!-- Description field -->
+      <div class="form-group">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          formControlName="description"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.description.errors }"
+        />
+      </div>
+
+      <!-- Listing price field -->
+      <div class="form-group">
+        <label for="listingPrice">Listing Price</label>
+        <input
+          type="text"
+          formControlName="listingPrice"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.price.errors }"
+        />
+      </div>
+
+      <!-- Available date field -->
+      <div class="form-group">
+        <label for="availableDate">Available Date</label>
+        <input
+          type="text"
+          formControlName="availableDate"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.availableDate.errors }"
+        />
+      </div>
+
+      <!-- Number of bedrooms field -->
+      <div class="form-group">
+        <label for="numOfBedroom">Number of Bedrooms</label>
+        <input
+          type="number"
+          formControlName="numOfBedroom"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.numOfBedroom.errors }"
+        />
+      </div>
+
+      <!-- Number of Bathrooms field -->
+      <div class="form-group">
+        <label for="numOfBathroom">Number of Bathrooms</label>
+        <input
+          type="number"
+          formControlName="numOfBathroom"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && fields.numOfBathroom.errors }"
+        />
+      </div>
+
+      <!-- Contact phone number field -->
+      <div class="form-group">
+        <label for="contactPhone">Contact Phone</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="contactPhone"
+          [ngClass]="{ 'is-invalid': submitted && fields.contactPhone.errors }"
+        />
+      </div>
+
+      <!-- Image url field -->
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input
+          type="text"
+          class="form-control"
+          formControlName="imageUrl"
+          [ngClass]="{ 'is-invalid': submitted && fields.imageUrl.errors }"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div>{{ diagnostic }}</div>
+    <div>
+      Hello
+      {{ houseForm.value | json }}
     </div>
   </div>
+</div>
