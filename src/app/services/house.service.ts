@@ -6,7 +6,8 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable, throwError, of, timer } from 'rxjs';
-import { catchError, tap, switchMap } from 'rxjs/operators';
+import { catchError, tap, switchMap, map } from 'rxjs/operators';
+import { resolve, reject } from 'q';
 
 @Injectable({
   providedIn: 'root'
@@ -57,7 +58,7 @@ export class HouseService {
 
   checkIfIdExists(id: number) {
     return timer(1000).pipe(switchMap(() => {
-      return this.http.get<any>(this.url + `/${id}`)
+      return this.http.get<any>(this.url + `/${id}`).toPromise().then();
     })
     );
   }

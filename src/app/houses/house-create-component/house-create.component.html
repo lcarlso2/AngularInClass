@@ -165,6 +165,12 @@
             *ngIf="fields.contactPhone.errors.required"
             >Contact phone is required
           </small>
+          <small
+            id="helpBlock"
+            class="form-text"
+            *ngIf="fields.contactPhone.errors.invalidPhone && !fields.contactPhone.errors.required"
+            >Invalid phone number</small
+          >
         </div>
       </div>
 
@@ -189,10 +195,8 @@
       <button type="submit" class="btn btn-primary" [disabled]="!houseForm.valid">Submit</button>
     </form>
     <div>{{ diagnostic }}</div>
-    {{ houseForm.invalid }}
-    <!-- <div>
-      Hello
-      {{ houseForm.value | json }}
-    </div> -->
+
+    {{!houseForm.valid}}
+  
   </div>
 </div>
