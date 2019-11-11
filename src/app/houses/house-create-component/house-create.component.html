@@ -63,12 +63,6 @@
             *ngIf="fields.description.errors.required"
             >Description is required
           </small>
-          <small
-            id="helpBlock"
-            class="form-text"
-            *ngIf="fields.description.errors.minlength"
-            >Description must be at least 10 characters</small
-          >
         </div>
       </div>
 
@@ -165,12 +159,6 @@
             *ngIf="fields.contactPhone.errors.required"
             >Contact phone is required
           </small>
-          <small
-            id="helpBlock"
-            class="form-text"
-            *ngIf="fields.contactPhone.errors.invalidPhone && !fields.contactPhone.errors.required"
-            >Invalid phone number</small
-          >
         </div>
       </div>
 

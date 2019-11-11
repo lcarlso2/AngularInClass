@@ -6,6 +6,7 @@ import {
     AbstractControl,
     AsyncValidatorFn,
     ValidatorFn,
+    FormControl,
 } from '@angular/forms';
 import { HouseService } from 'src/app/services/house.service';
 import { Router } from '@angular/router';
@@ -13,7 +14,6 @@ import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { House } from '../house.model';
-import { PhoneValidator } from 'src/app/validators/phone-validator';
 
 @Component({
     selector: 'app-house-create',
@@ -48,20 +48,19 @@ export class HouseCreateComponent implements OnInit {
 
     ngOnInit() {
         this.houseForm = this.formBuilder.group({
-            id: [
+            id: new FormControl(
                 '',
                 [Validators.required],
-                //    [this.idValidator()]
-            ],
-            address: ['', Validators.required],
-            description: ['', [Validators.required, Validators.minLength(10)]],
-            listingPrice: ['', Validators.required],
-            availableDate: ['', Validators.required],
-            numOfBedroom: ['', Validators.required],
-            numOfBathroom: ['', Validators.required],
-            contactPhone: ['', [Validators.required, this.phoneValidator()]],
-            // contactPhone: ['', [Validators.required, PhoneValidator.phoneShouldBeValid.bind(this)]],
-            imageUrl: ['', Validators.required],
+          //          [this.idValidator()]
+            ),
+            address: new FormControl('', Validators.required),
+            description: new FormControl('', [Validators.required]),
+            listingPrice: new FormControl('', Validators.required),
+            availableDate: new FormControl('', Validators.required),
+            numOfBedroom: new FormControl('', Validators.required),
+            numOfBathroom: new FormControl('', Validators.required),
+            contactPhone: new FormControl('', [Validators.required]),
+            imageUrl: new FormControl('', Validators.required),
         });
     }
 
@@ -105,25 +104,4 @@ export class HouseCreateComponent implements OnInit {
         this.houseForm.reset();
     }
 
-    idValidator(): AsyncValidatorFn {
-        return (
-            control: AbstractControl
-        ): Observable<{ [key: string]: any } | null> => {
-            return this.service.checkIfIdExists(control.value).pipe(
-                map(idExists => {
-                    if (idExists) {
-                        return { idTaken: true };
-                    }
-                })
-            );
-        };
-    }
-
-    phoneValidator(): ValidatorFn {
-        return (control: AbstractControl): { [key: string]: any } | null => {
-            const regex = /^([()\- x+]*\d[()\- x+]*){10}$/i;
-            const valid = regex.test(control.value);
-            return valid ? null : { invalidPhone: true };
-        };
-    }
 }
